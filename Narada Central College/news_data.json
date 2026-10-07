@@ -1,0 +1,68 @@
+[{
+    "id": 5,
+    "badge": "Education",
+    "date": "May 20, 2026",
+    "title": "Cadet",
+    "description": "The Annual Inter-House Sports Meet of Narada Central College was held successfully at the school grounds. Students showed outstanding performance and sportsmanship throughout the events.",
+    "main_image": "News/පරිසරභට 3.jpeg",
+    "gallery": [
+      "News/event 1.jpeg",
+      "News/event 1.jpeg",
+      "News/event 1.jpeg",
+      "News/event 1.jpeg"
+    ]
+  },
+  {
+    "id": 4,
+    "badge": "Co-curricular activity",
+    "date": "May 20, 2026",
+    "title": "Annual Inter-House Sports Meet 2026",
+    "description": "The Annual Inter-House Sports Meet of Narada Central College was held successfully at the school grounds. Students showed outstanding performance and sportsmanship throughout the events.",
+    "main_image": "News/පරිසරභට 3.jpeg",
+    "gallery": [
+      "News/event 1.jpeg",
+      "News/event 1.jpeg",
+      "News/event 1.jpeg",
+      "News/event 1.jpeg"
+    ]
+  },
+  {
+    "id": 3,
+    "badge": "Sports",
+    "date": "May 15, 2026",
+    "title": "Term Examination Schedule",
+    "description": "The first term evaluation examinations for Grades 6 to 13 will commence from next Monday onwards. Please check the school notice board for timetables.",
+    "main_image": "News/පරිසරභට 3.jpeg",
+    "gallery": [
+      "News/event 1.jpeg",
+      "News/event 1.jpeg"
+    ]
+  },
+  {
+    "id": 2,
+    "badge": "Co-Curricular",
+    "date": "May 25, 2026",
+    "title": "Scouting Badge Pinning Ceremony Sparks Pride at Narada Central College",
+    "main_image": "News/බාලදක්ෂ 6.jpeg",
+    "description": "\n\nපරිසර හිතකාමී සහ විනයගරුක සේවයකට මඟ පෑදූ පරිසර භට කණ්ඩායම් නිල ලාංඡන පැළඳවීමේ උත්සවයට සමානවම, නාරද මධ්‍ය මහා විද්‍යාලයේ සිසු සිසුවියන්ගේ නායකත්ව ගුණාංග, විනය සහ පෞරුෂ වර්ධනය අරමුණු කරගනිමින් සංවිධානය කරන ලද බාලදක්ෂ නිල ලාංඡන පැළඳවීමේ සහ පොරොන්දු ලබාදීමේ විශේෂ මහෝත්සවය පසුගියදා විද්‍යාලයීය ප්‍රධාන ශ්‍රවණාගාරයේදී අති උත්කර්ෂවත් අන්දමින් පැවැත්වුණා.\n\nබාලදක්ෂ පුහුණුව සාර්ථකව නිමා කළ දරු දැරියන්ගේ නිල ඇඳුම්වලට අදාළ නිල ලාංඡන සහ බාලදක්ෂ ලේන්සුව (Scarf & Badges) පැළඳවීම ආරාධිත අමුත්තන් සහ දූ දරුවන්ගේ ආදරණීය දෙමාපියන් අතින් සිදු කෙරුණා.",
+    "gallery": [
+        "News/බාලදක්ෂ 1.jpeg",
+        "News/බාලදක්ෂ 2.jpeg",
+        "News/බාලදක්ෂ 3.jpeg",
+        "News/බාලදක්ෂ 5.jpeg"
+    ]
+},
+  {
+    "id": 1,
+    "badge": "Co-curricular activity",
+    "date": "April 04, 2026",
+    "title": "Annual Environmental Pioneers National Ceremony 2026",
+    "description": "The Annual Environmental Pioneers Ceremony of Narada Central College was held successfully today at the school main hall. The event focused on raising awareness about environmental conservation and sustainability. Members of the school Eco-Club actively participated in various green initiatives, tree planting campaigns, and waste management workshops, showcasing their commitment to protecting mother nature.",
+    "main_image": "News/පරිසරභට 3.jpeg",
+    "gallery": [
+      "News/පරිසරභට 3.jpeg",
+      "News/පරිසරභට 1.jpeg",
+      "News/පරිසරභට 2.jpeg"
+    ]
+  }
+]

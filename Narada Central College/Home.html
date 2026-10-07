@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NARADA CENTRAL COLLEGE</title>
+     <link rel="stylesheet" type="text/css" href="homestyles.css">
+
+</head>
+<body>
+
+    <!-- --- STANDARD MAIN HEADER --- -->
+    <header>
+        <div class="header-branding">
+            <img src="NCC LOGO/log.png" alt="School Logo" class="header-logo">
+            <div class="header-title">
+                <h2>NARADA CENTRAL COLLEGE</h2>
+                <p>PARAKADUWA, RATHNAPURA</p>
+            </div>
+        </div>
+
+       <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="navbar">
+            <a href="Home.html" class="active">Home</a>
+            <a href="about us.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- --- DYNAMIC ANIMATED HERO SLIDER --- -->
+    <div class="hero-slider-container">
+        <!-- Slide Background Layers -->
+        <div class="hero-slide active" style="background-image: url('NCC LOGO/unnamed.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('NCC LOGO/1.jpeg');"></div>
+        <div class="hero-slide" style="background-image: url('NCC LOGO/3.jpeg');"></div>
+        
+        <!-- FIXED BRANDING CORNER INSIDE THE GEOMETRIC OVERLAY -->
+        <div class="slider-branding">
+            <!-- ORIGINAL LOGO - NO CROP, NO ROUND BACKGROUND -->
+            <img src="NCC LOGO/log.png" alt="School Logo" class="slider-logo"> 
+            <div class="slider-school-name">
+                <h2>NARADA CENTRAL COLLEGE</h2>
+                <p>PARAKADUWA, RATNAPURA</p>
+            </div>
+        </div>
+
+        <!-- Animated Info Headers -->
+        <div class="hero-text-wrapper animate-now" id="heroTextContainer">
+            <div>
+                <h3 id="heroSubtitle">WELCOME TO</h3>
+                <h1 id="heroTitle">THE HOME OF EXCELLENCE</h1>
+            </div>
+        </div>
+
+        <!-- Navigation Dots -->
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+    <!-- [ABOUT SECTION - ඉතිහාසය සහ හැඳින්වීම] -->
+    <section class="about-section">
+        <div class="container">
+            <!-- [TITLE - ප්‍රධාන මාතෘකාව] -->
+            <h2 class="section-title">A Legacy of Excellence Since 1959</h2>
+            
+            <!-- [PARAGRAPH - විස්තරය] -->
+            <p class="about-text">
+                Pathberiya Narada M.M.V., Parakaduwa has been dedicated to providing quality education and nurturing responsible citizens. 
+                The school offers a supportive learning environment where students are encouraged to develop knowledge, values, and skills. 
+                While proudly preserving its traditions, the school continues to embrace progress and inspire students to achieve excellence 
+                and contribute positively to society.
+            </p>
+        </div>
+    </section>
+
+        <!-- Vision, Mission, Motto Section -->
+        <section class="vision-mission">
+            <div class="vm-container">
+                <div class="vm-box motto-box">
+                    <h2>MOTTO</h2>
+                    <p>"නොනවතිනු-ඉදිරියට යනු"</p>
+                </div>
+                <div class="vm-box">
+                    <h2>VISION</h2>
+                    <p>අනාගත ලොව අභියෝග ජය ගත හැකි ද්විතීක පාසල් අතර සුවිශේෂී ස්ථානයක් හිමිකර ගැනීම.</p>
+                </div>
+                <div class="vm-box">
+                    <h2>MISSION</h2>
+                    <p>ශ්‍රී ලාංකේය අනන්‍යතාවය සුරකිමින් දැනුම, ආකල්ප, කුසලතා වලින් දික් විජය කොට ගෝලීය අභියෝග ජයගනිමින් හෘදයාංගමව එකිනෙකා සමග බඳෙන්නට හැකි සක්‍රීය ප්‍රජාවක් අනාගත් අපරපුරට දායාද කිරීම.</p>
+                </div>
+            </div>
+        </section>
+
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3, // එකවර පින්තූර 3ක් පෙන්වයි
+            spaceBetween: 30,
+            loop: true, // නැවත නැවත ස්ලයිඩ් වේ
+            autoplay: {
+            delay: 2500, // තත්පර 2.5කින් ස්ලයිඩ් වේ
+            disableOnInteraction: false,
+            },
+        });
+        </script>
+
+        <!-- [CLUBS & SOCIETIES SECTION] -->
+        <section class="clubs-section">
+            <h2 class="section-title">Clubs & Societies</h2>
+            <div class="clubs-container">
+                <!-- Club 1 -->
+                <div class="club-card">
+                    <h3>ICT Society</h3>
+                    <p>නූතන තාක්ෂණය සමඟ එක්වමින් අලුත් දේ නිර්මාණය කරන සිසුන්ගේ එකතුව.</p>
+                </div>
+                <!-- Club 2 -->
+                <div class="club-card">
+                    <h3>Science Society</h3>
+                    <p>විද්‍යාත්මක දැනුම සහ පර්යේෂණාත්මක කුසලතා වර්ධනය කරගැනීම.</p>
+                </div>
+                <!-- Club 3 -->
+                <div class="club-card">
+                    <h3>English Literary Association</h3>
+                    <p>ඉංග්‍රීසි භාෂා දැනුම සහ නිර්මාණාත්මක හැකියාවන් ඔප් නංවා ගැනීම.</p>
+                </div>
+                <!-- Club 4 -->
+                <div class="club-card">
+                    <h3>Sports Club</h3>
+                    <p>ක්‍රීඩාව තුළින් නිරෝගී සහ විනයගරුක පරපුරක් බිහි කිරීම.</p>
+                </div>
+            </div>
+        </section>
+     
+        <!-- [SPORTS SECTION] -->
+    <section class="sports-section">
+        <h2 class="section-title">Our Sports</h2>
+        <div class="swiper sports-swiper">
+            <div class="swiper-wrapper">
+                <!-- ක්‍රීඩා 1 -->
+                <div class="swiper-slide sport-card">
+                    <h3>Athletics</h3>
+                    <p>වේගය සහ විනය වර්ධනය කරන මලල ක්‍රීඩා අංශය.</p>
+                </div>
+                <!-- ක්‍රීඩා 2 -->
+                <div class="swiper-slide sport-card">
+                    <h3>Cricket</h3>
+                    <p>කණ්ඩායම් හැඟීම සහ ක්‍රීඩා කෞශල්‍යය දියුණු කිරීම.</p>
+                </div>
+                <!-- ක්‍රීඩා 3 -->
+                <div class="swiper-slide sport-card">
+                    <h3>Swimming</h3>
+                    <p>නිරෝගී සිරුරකට අවශ්‍ය ජල ක්‍රීඩා අංශය.</p>
+                </div>
+                <!-- ක්‍රීඩා 4 -->
+                <div class="swiper-slide sport-card">
+                    <h3>Elle</h3>
+                    <p>බුද්ධිමය හැකියාවන් ඔප්නංවන චෙස් ක්‍රීඩා අංශය.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <script>
+        var swiperSports = new Swiper(".sports-swiper", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+            },
+            breakpoints: {
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            },
+        });
+        </script>
+    <section class="stats-section" id="counter-section">
+        <div class="stats-container">
+            <div class="stat-box">
+                <h2 class="counter" data-target="700">0</h2>
+                <p>Students</p>
+            </div>
+            <div class="stat-box">
+                <h2 class="counter" data-target="56">0</h2>
+                <p>Teachers</p>
+            </div>
+            <div class="stat-box">
+                <h2 class="counter" data-target="11">0</h2>
+                <p>Non-academic staff</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="chat-launcher" onclick="toggleChat()">💬</div>
+
+    <div class="chat-wrapper" id="chatWindow">
+        <div class="chat-header">
+            <span>NCC Support Bot</span>
+            <span class="chat-close" onclick="toggleChat()">×</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">ආයුබෝවන්! Narada Central College වෙබ් අඩවියට ඔබව සාදරයෙන් පිළිගනිමු. මම ඔබට උදව් කරන්නේ කෙසේද?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chatInput" placeholder="ඔබේ ප්‍රශ්නය මෙතන ලියන්න..." onkeypress="checkEnter(event)">
+            <button class="chat-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Responsive Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+
+        // --- HERO SLIDESHOW & TEXT ANIMATION LOGIC ---
+        const slides = document.querySelectorAll('.hero-slide');
+        const textWrapper = document.getElementById('heroTextContainer');
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentSlideIndex = 0;
+        const slideIntervalTime = 5000; 
+
+        // Create Navigation Dots dynamically
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function triggerTextAnimation(slideIndex) {
+            textWrapper.classList.remove('animate-now');
+            
+            const subtitleObj = document.getElementById('heroSubtitle');
+            const titleObj = document.getElementById('heroTitle');
+            
+            if(slideIndex === 0) {
+                subtitleObj.innerText = "WELCOME TO";
+                titleObj.innerText = "THE HOME OF EXCELLENCE";
+            } else if(slideIndex === 1) {
+                subtitleObj.innerText = "NURTURING FUTURE";
+                titleObj.innerText = "LEADERS & INNOVATORS";
+            } else {
+                subtitleObj.innerText = "EXCELLENCE IN";
+                titleObj.innerText = "EDUCATION & SPORTS";
+            }
+
+            void textWrapper.offsetWidth; 
+            textWrapper.classList.add('animate-now');
+        }
+
+        function changeSlide() {
+            slides[currentSlideIndex].classList.remove('active');
+            dots[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+            
+            triggerTextAnimation(currentSlideIndex);
+        }
+
+        function goToSlide(index) {
+            clearInterval(slideTimer);
+            slides[currentSlideIndex].classList.remove('active');
+            dots[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex = index;
+            
+            slides[currentSlideIndex].classList.add('active');
+            dots[currentSlideIndex].classList.add('active');
+            
+            triggerTextAnimation(currentSlideIndex);
+            slideTimer = setInterval(changeSlide, slideIntervalTime);
+        }
+
+        let slideTimer = setInterval(changeSlide, slideIntervalTime);
+
+        // Counter Logic
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; 
+
+        const runCounter = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 25);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        runCounter();
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(document.getElementById('counter-section'));
+        } else {
+            window.onload = runCounter;
+        }
+
+        // Chatbot Functionality
+        function toggleChat() {
+            const chatWin = document.getElementById('chatWindow');
+            if(chatWin.style.display === 'flex') {
+                chatWin.style.display = 'none';
+            } else {
+                chatWin.style.display = 'flex';
+            }
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (text === '') return;
+
+            const chatBody = document.getElementById('chatBody');
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.innerText = text;
+            chatBody.appendChild(userMsg);
+
+            input.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-msg bot';
+                
+                let reply = "ඔබගේ පණිවිඩයට ස්තූතියි! වැඩිදුර තොරතුරු සඳහා කරුණාකර අපගේ Contact පිටුව හරහා විදුහල්පතිතුමා හෝ කාර්යාලය සම්බන්ධ කරගන්න.";
+                const lowerText = text.toLowerCase();
+                
+                if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('හලෝ')) {
+                    reply = "ආයුබෝවන්! මම NCC ස්මාර්ට් සහායකයා. ඔබට අද කුමන තොරතුරක්ද අවශ්‍ය?";
+                } else if (lowerText.includes('contact') || lowerText.includes('දුරකථන') || lowerText.includes('නම්බර්')) {
+                    reply = "ඔබට අපව සම්බන්ධ කර ගැනීමට ඉහළ මෙනු එකේ ඇති 'Contact' පිටුවට පිවිසෙන්න.";
+                } else if (lowerText.includes('gallery') || lowerText.includes('පින්තූර')) {
+                    reply = "පාසලේ උත්සව සහ විශේෂ අවස්ථාවල පින්තූර බැලීමට 'Gallery' පිටුවට පිවිසෙන්න.";
+                } else if (lowerText.includes('about') || lowerText.includes('විස්තර')) {
+                    reply = "අප පාසලේ ඉතිහාසය සහ තොරතුරු 'About Us' පිටුවේ අඩංගු වේ.";
+                }
+                
+                botMsg.innerText = reply;
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 800);
+        }
+    </script>
+
+    <footer class="footer">
+    <div class="footer-container">
+        
+        <!-- වම් පැත්තේ ලාංඡනය සහ නම -->
+        <div class="footer-col brand-col">
+            <img src="NCC LOGO/log.png" alt="Narada College Logo" class="footer-logo">
+            <div class="brand-text">
+                <h2>R/Pathberiya Narada Central College</h2>
+            </div>
+        </div>
+
+        <!-- දකුණු පැත්තෙන් Quick Links සහ Contact Us -->
+        <div class="footer-links-wrapper">
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="about us.html">About</a></li>
+                     <li><a href="Gallery.html">Gallery</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Us & Follow Us -->
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>Phone : 036-2258105 </p>
+                <p> E-mail  : parakaduwanarada036@gmail.com </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom">
+        <p>Copyright © 2026 Narada College | Designed By: Ruwanpura National College of Education 2022-2024 batch</p>
+    </div>
+</footer>

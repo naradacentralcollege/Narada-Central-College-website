@@ -1,0 +1,630 @@
+  /* Premium Blue & Gold Palette Integrated */
+        :root {
+            --primary: #0a3221; /* Rich Deep Navy Green */
+            --primary-light: #0b8d66; /* Mid Navy Green */
+            --accent: #e0a96d; /* Soft Luxury Gold */
+            --accent-hover: #dd994b; /* Vibrant Gold */
+            --background: #ffffff; /* Pure White Background */
+            --card-sub-bg: #f8f9fa; /* Ultra Light Gray for contrast */
+            --text-muted: #616e7d;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+         
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            color: var(--primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Premium Clean Header */
+       /* --- PREMIUM HEADER & NAV STYLES --- */
+        /* Premium Clean Header */
+       /* --- PREMIUM HEADER & NAV STYLES --- */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 1010;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .school-name {
+            margin-left: 0px;
+        }
+
+        .school-name h2 {
+            font-size: 20px;
+            color: #062b1a; 
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+         .school-name p {
+            font-size: 11px;
+            color: #0e845c;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Premium Floating Navigation Bar */
+        nav {
+            background: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px; 
+            box-shadow: 0 8px 25px rgba(10, 50, 33, 0.2); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+
+        nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 20px 60px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0;
+            height: 4px;
+            background-color: var(--accent);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 70%;
+        }
+
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 991px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav {
+                border-radius: 20px;
+                flex-wrap: wrap;
+                width: 90%;
+            }
+            nav a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* Main Content Title */
+        .page-title {
+            text-align: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Back Button Style */
+        .back-btn {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 25px;
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Folders Grid Layout */
+        .folder-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            padding: 20px 5%;
+        }
+
+        .folder-card {
+            background: var(--card-sub-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        /* Folder Cover Image Styling */
+        .folder-cover-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .folder-card h3 {
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .folder-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .folder-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 30px rgba(10, 50, 33, 0.1);
+        }
+
+        /* Gallery Grid Layout */
+        .gallery-container {
+            display: none; 
+            max-width: 1300px;
+            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px 5%;
+        }
+
+        .gallery-item {
+            background: var(--card-sub-bg);
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            text-align: center;
+            position: relative; 
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 30px rgba(10, 50, 33, 0.08);
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            cursor: pointer;
+            display: block;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- Image Watermark Footer Strip --- */
+        .image-watermark-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%; 
+            background: rgba(10, 50, 33, 0.75); 
+            backdrop-filter: blur(3px);
+            color: #ffffff;
+            padding: 6px 10px;
+            font-size: 11px;
+            text-align: left;
+            pointer-events: none; 
+            border-top: 1px solid rgba(224, 169, 109, 0.4); 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        .wm-left {
+            font-weight: bold;
+            color: var(--accent);
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .wm-right {
+            text-align: right;
+            font-size: 9px;
+            opacity: 0.9;
+            line-height: 1.2;
+        }
+
+        .wm-right span {
+            display: block;
+        }
+
+        .gallery-item h4 {
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 5px 8px 5px;
+        }
+
+        /* Modernized Image Lightbox Modal */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000;
+            padding-top: 40px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 50, 33, 0.95); 
+            backdrop-filter: blur(8px);
+        }
+
+        /* Wrapper that bounds image and watermark together in modal */
+        .modal-wrapper {
+            position: relative;
+            margin: auto;
+            max-width: 85%;
+            max-height: 80vh;
+            display: table; /* Auto-fits to dynamic width of loaded image */
+            animation: zoomIn 0.3s ease;
+        }
+
+        .modal-content {
+            display: block;
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 12px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        /* Lightbox Watermark Overlay Style */
+        .modal-watermark-footer {
+            position: absolute;
+            bottom: 3px; /* Inside image border bounds */
+            left: 3px;
+            width: calc(100% - 6px); /* Perfectly aligns with image borders */
+            background: rgba(10, 50, 33, 0.85);
+            backdrop-filter: blur(5px);
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--accent);
+            border-radius: 0 0 9px 9px;
+            box-sizing: border-box;
+            pointer-events: none;
+            font-family: sans-serif;
+        }
+
+        .modal-watermark-footer .m-wm-left {
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .modal-watermark-footer .m-wm-right {
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.3;
+            opacity: 0.95;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: #ffffff;
+            font-size: 45px;
+            font-weight: 300;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 2010;
+        }
+
+        .close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        /* --- Mobile Responsive Rules --- */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 20px;
+            }
+            .logo {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            .school-name {
+                margin-left: 0;
+            }
+            nav {
+                margin: 10px 4% 25px 4%; 
+                border-radius: 20px; 
+                flex-wrap: wrap;
+            }
+            nav a {
+                flex: 1 1 45%; 
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+            .folder-container, .gallery-container {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 15px;
+                padding: 10px 4%;
+            }
+            .close {
+                top: 15px;
+                right: 25px;
+                font-size: 35px;
+            }
+            .image-watermark-footer {
+                font-size: 9px;
+                padding: 4px 8px;
+            }
+            .wm-left { font-size: 8px; }
+            .wm-right { font-size: 8px; }
+
+            .modal-watermark-footer {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            .modal-watermark-footer .m-wm-left { font-size: 10px; }
+            .modal-watermark-footer .m-wm-right { font-size: 9px; }
+            .footer-content {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+    /* --- Footer Styles --- */
+        footer {
+            background-color: var(--primary); 
+            color: #ffffff;
+            padding: 50px 5% 20px 5%;
+            border-top: 4px solid var(--accent); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+            padding-bottom: 30px;
+        }
+
+        /* Brand & Logo Section (Left Side) */
+        .footer-col.brand-col {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+            min-width: 280px;
+        }
+        /* Brand & Logo Section - ලාංඡනය සහ නම එක යට එක වැටීමට සැකසීම */
+        .footer-col.brand-col {
+            display: flex;
+            flex-direction: column; /* මෙතැනින් එක යට එක වැටීමට සකසයි */
+            align-items: center; /* මැදට අවශ්‍ය නම් center ද, වම්පසට නම් flex-start ද දෙන්න */
+            gap: 15px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* මෙතැනින් Footer Logo එකේ ප්‍රමාණය පාලනය කළ හැක (උදා: 50px) */
+        .footer-logo {
+            width: 100px !important; 
+            height: auto !important;
+            max-width: 100px !important;
+            background: #ffffff;
+            padding: 5px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .brand-text h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Links & Contact Sections (Right Side to Logo) */
+        .footer-links-wrapper {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            flex: 2;
+            justify-content: flex-end;
+        }
+
+        .footer-col {
+            min-width: 180px;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a, 
+        .footer-col p {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-col.brand-col {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-links-wrapper {
+                justify-content: center;
+                gap: 30px;
+                width: 100%;
+            }
+        }
+    
+   
+
