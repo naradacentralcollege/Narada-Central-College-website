@@ -505,67 +505,61 @@ footer {
 }
 
 
-/* ---------- TABLET / MOBILE ---------- */
 @media screen and (max-width: 768px) {
 
-    /* ================= HEADER ================= */
+    /* ---------- HEADER ---------- */
 
     header {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        min-height: 70px;
-        padding: 8px 15px;
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #ffffff;
-        z-index: 9999;
+        padding: 10px 20px;
+        z-index: 1010;
     }
 
     .brand-container {
         display: flex;
         align-items: center;
         min-width: 0;
-        flex: 1;
     }
 
     .logo {
-        width: 52px;
+        width: 55px;
         height: auto;
         flex-shrink: 0;
     }
 
     .school-name {
-        margin-left: 10px;
+        margin-left: 12px;
         min-width: 0;
     }
 
     .school-name h2 {
-        font-size: clamp(13px, 4vw, 18px);
-        line-height: 1.15;
+        font-size: 15px;
+        line-height: 1.2;
         white-space: normal;
     }
 
     .school-name p {
-        font-size: 8px;
-        letter-spacing: 0.6px;
+        font-size: 9px;
+        letter-spacing: 0.7px;
         margin-top: 3px;
     }
 
 
-    /* ================= HAMBURGER ================= */
+    /* ---------- HAMBURGER MENU ---------- */
 
     .menu-toggle {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 30px;
-        height: 22px;
-        margin-left: 10px;
+        height: 21px;
         cursor: pointer;
+        z-index: 1020;
         flex-shrink: 0;
-        z-index: 10001;
+        margin-left: 10px;
     }
 
     .menu-toggle span {
@@ -573,11 +567,14 @@ footer {
         width: 100%;
         height: 3px;
         background-color: var(--primary);
-        border-radius: 5px;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
     }
 
+    /* Hamburger -> X */
+
     .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9.5px) rotate(45deg);
+        transform: translateY(9px) rotate(45deg);
     }
 
     .menu-toggle.active span:nth-child(2) {
@@ -585,31 +582,34 @@ footer {
     }
 
     .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9.5px) rotate(-45deg);
+        transform: translateY(-9px) rotate(-45deg);
     }
 
 
-    /* ================= MOBILE NAVIGATION ================= */
+    /* ---------- MOBILE NAVIGATION ---------- */
 
     header nav {
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
+
+        background-color: var(--primary);
 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
+        align-items: center;
 
-        background: var(--primary-dark);
         border-radius: 0;
         border: none;
 
-        box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        box-shadow: 0 10px 25px rgba(10, 50, 33, 0.25);
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+
+        padding: 0;
 
         transition:
             max-height 0.4s ease,
@@ -617,56 +617,59 @@ footer {
     }
 
     header nav.active {
-        max-height: 500px;
+        max-height: 400px;
         opacity: 1;
+        padding: 10px 0;
     }
 
     header nav a {
         width: 100%;
         padding: 15px 20px;
+
+        color: rgba(255, 255, 255, 0.95);
+
         text-align: center;
         font-size: 15px;
-        color: #ffffff;
+        font-weight: 600;
+
         background: transparent;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    header nav a:last-child {
-        border-bottom: none;
+    header nav a:hover,
+    header nav a.active {
+        color: var(--accent);
+        background-color: rgba(255, 255, 255, 0.05);
     }
 
     header nav a::after {
         display: none;
     }
 
-    header nav a:hover,
-    header nav a.active {
-        background: var(--primary-light);
-        color: var(--accent);
-    }
 
-
-    /* ================= MAIN CONTENT ================= */
+    /* ---------- MAIN CONTENT ---------- */
 
     .content-wrapper {
         width: 100%;
         max-width: 100%;
-        margin: 20px auto;
-        padding: 0 12px;
+        margin: 25px auto;
+        padding: 0 15px;
+
         display: flex;
         flex-direction: column;
         gap: 20px;
     }
 
 
-    /* ================= SIDEBAR ================= */
+    /* ---------- SIDEBAR ---------- */
 
     .index-sidebar {
         width: 100%;
         min-width: 0;
+
         position: static;
-        padding: 20px 18px;
-        border-radius: 12px;
+
+        padding: 22px 18px;
+        border-radius: 14px;
     }
 
     .index-sidebar h3 {
@@ -674,37 +677,36 @@ footer {
     }
 
     .index-sidebar ul li {
-        padding: 10px 0;
+        padding: 11px 0;
     }
 
     .index-sidebar ul li a {
-        font-size: 14px;
+        font-size: 15px;
     }
 
 
-    /* ================= DETAILS ================= */
+    /* ---------- DETAILS AREA ---------- */
 
     .details-area {
         width: 100%;
         min-width: 0;
     }
 
+
+    /* ---------- SECTIONS ---------- */
+
     section {
         width: 100%;
         padding: 28px 18px;
         margin-bottom: 22px;
-        border-radius: 12px;
-    }
-
-    section:hover {
-        transform: none;
+        border-radius: 14px;
     }
 
     section h2 {
-        font-size: clamp(19px, 5vw, 24px);
-        padding-left: 10px;
-        margin-bottom: 18px;
-        border-left-width: 4px;
+        font-size: 21px;
+        padding-left: 11px;
+        border-left-width: 5px;
+        margin-bottom: 20px;
     }
 
     section h3 {
@@ -713,56 +715,47 @@ footer {
 
     section p {
         font-size: 15px;
-        line-height: 1.7;
+        line-height: 1.75;
     }
 
 
-    /* ================= ANTHEM ================= */
+    /* ---------- ANTHEM ---------- */
 
     .anthem-container {
-        width: 100%;
         padding: 25px 15px;
         margin-bottom: 20px;
     }
 
     .anthem-text p {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.8;
-        word-break: normal;
-        overflow-wrap: break-word;
     }
 
 
-    /* ================= PRINCIPAL ================= */
-
-    .principal-msg {
-        width: 100%;
-        overflow: hidden;
-    }
+    /* ---------- PRINCIPAL MESSAGE ---------- */
 
     .principal-img-container {
         width: 100%;
         max-width: 220px;
+
         float: none;
+
         margin: 0 auto 20px auto;
-        text-align: center;
     }
 
     .principal-img-container img {
         width: 100%;
         height: auto;
-        display: block;
     }
 
-    .principal-msg p {
-        clear: both;
+    .principal-msg p strong {
+        font-size: 17px;
     }
 
 
-    /* ================= CARDS ================= */
+    /* ---------- CARD GRID ---------- */
 
     .grid-layout {
-        width: 100%;
         grid-template-columns: 1fr;
         gap: 18px;
         margin-top: 20px;
@@ -771,15 +764,13 @@ footer {
     .card-box {
         width: 100%;
         padding: 22px 16px;
-        border-radius: 12px;
     }
 
     .card-box img {
         width: 100%;
         height: auto;
-        max-height: 260px;
+        max-height: 250px;
         object-fit: cover;
-        display: block;
     }
 
     .card-box h4 {
@@ -787,39 +778,34 @@ footer {
     }
 
 
-    /* ================= VICE PRINCIPAL ================= */
+    /* ---------- VICE PRINCIPAL ---------- */
 
     .vp-box img {
         width: 120px;
         height: 120px;
-        display: block;
-        margin: 0 auto 15px auto;
     }
 
 
-    /* ================= MANAGEMENT ================= */
+    /* ---------- MANAGEMENT ---------- */
 
     .management-box {
-        width: 100%;
-        padding: 22px 18px;
+        padding: 22px 17px;
     }
 
     .management-box ul li {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.6;
-        padding-left: 22px;
+        padding-left: 23px;
     }
 
 
-    /* ================= FOOTER ================= */
+    /* ---------- FOOTER ---------- */
 
     footer {
-        width: 100%;
-        padding: 40px 18px 20px;
+        padding: 40px 20px 18px 20px;
     }
 
     .footer-container {
-        width: 100%;
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -834,13 +820,9 @@ footer {
     }
 
     .footer-logo {
-        width: 85px !important;
-        max-width: 85px !important;
+        width: 90px !important;
+        max-width: 90px !important;
         height: auto !important;
-    }
-
-    .brand-text {
-        width: 100%;
     }
 
     .brand-text h2 {
@@ -859,17 +841,15 @@ footer {
     .footer-col {
         width: 100%;
         min-width: 0;
-        text-align: center;
     }
 
     .footer-col h3 {
         font-size: 16px;
     }
 
-    .footer-col ul li a,
-    .footer-col p {
-        font-size: 13px;
-        overflow-wrap: anywhere;
+    .footer-col p,
+    .footer-col ul li a {
+        font-size: 14px;
     }
 
     .footer-bottom {
@@ -877,49 +857,33 @@ footer {
         font-size: 11px;
         line-height: 1.6;
     }
-
-
-    /* ================= GENERAL IMAGE RESPONSIVE ================= */
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    video,
-    iframe {
-        max-width: 100%;
-    }
-
 }
 
 
 /* =========================================================
-   SMALL MOBILE PHONES
+   SMALL MOBILE SCREENS
    ========================================================= */
 
 @media screen and (max-width: 480px) {
 
     header {
-        padding: 8px 12px;
-        min-height: 64px;
+        padding: 9px 15px;
     }
 
     .logo {
-        width: 46px;
+        width: 48px;
     }
 
     .school-name {
-        margin-left: 8px;
+        margin-left: 9px;
     }
 
     .school-name h2 {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .school-name p {
-        font-size: 7px;
-        letter-spacing: 0.4px;
+        font-size: 8px;
     }
 
     .menu-toggle {
@@ -928,87 +892,27 @@ footer {
     }
 
     .content-wrapper {
-        padding: 0 10px;
-        margin-top: 15px;
+        padding: 0 12px;
+        margin-top: 20px;
     }
 
     section {
-        padding: 22px 14px;
-        margin-bottom: 18px;
+        padding: 24px 15px;
     }
 
     section h2 {
-        font-size: 18px;
+        font-size: 19px;
     }
 
     section p {
         font-size: 14px;
-    }
-
-    .anthem-container {
-        padding: 20px 12px;
-    }
-
-    .anthem-text p {
-        font-size: 13px;
-    }
-
-    .card-box {
-        padding: 18px 12px;
     }
 
     .card-box img {
-        max-height: 230px;
+        max-height: 220px;
     }
 
-    .management-box {
-        padding: 18px 14px;
+    .footer-bottom {
+        font-size: 10px;
     }
-
-    .footer-logo {
-        width: 75px !important;
-        max-width: 75px !important;
-    }
-
-    .brand-text h2 {
-        font-size: 14px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   ========================================================= */
-
-@media screen and (max-width: 360px) {
-
-    .school-name h2 {
-        font-size: 11px;
-    }
-
-    .school-name p {
-        font-size: 6px;
-    }
-
-    .logo {
-        width: 42px;
-    }
-
-    .menu-toggle {
-        width: 26px;
-    }
-
-    section {
-        padding: 20px 12px;
-    }
-
-    section h2 {
-        font-size: 17px;
-    }
-
-    section p {
-        font-size: 13px;
-    }
-
 }
