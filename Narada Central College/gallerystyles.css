@@ -1469,6 +1469,14 @@ footer {
 
         visibility: visible !important;
     }
+  .navbar-toggler, 
+  .menu-toggle, 
+  .hamburger-button {
+            background-color: transparent !important;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
 
 
     /* HAMBURGER LINES */
