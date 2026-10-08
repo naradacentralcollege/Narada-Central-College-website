@@ -1113,4 +1113,225 @@ footer {
 
         width: 100%;
     }
+/* =========================================================
+   MOBILE HAMBURGER MENU
+   Desktop navigation remains unchanged
+   ========================================================= */
+
+.hamburger {
+    display: none;
+
+    width: 45px;
+    height: 45px;
+
+    background: var(--primary);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    padding: 8px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    z-index: 1020;
+}
+
+
+/* Hamburger lines */
+.hamburger span {
+    display: block;
+
+    width: 24px;
+    height: 3px;
+
+    background-color: var(--accent);
+
+    border-radius: 3px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        position: relative;
+
+        padding: 15px 20px;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        text-align: left;
+    }
+
+
+    .brand-container {
+        gap: 10px;
+
+        max-width: calc(100% - 60px);
+    }
+
+
+    .logo {
+        width: 55px;
+
+        margin: 0;
+    }
+
+
+    .school-name h2 {
+        font-size: 16px;
+    }
+
+
+    .school-name p {
+        font-size: 9px;
+
+        letter-spacing: 0.7px;
+    }
+
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+
+    /* Mobile navigation closed */
+    nav {
+        position: absolute;
+
+        top: calc(100% + 8px);
+
+        left: 15px;
+        right: 15px;
+
+        width: auto;
+
+        margin: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background-color: var(--primary);
+
+        border-radius: 15px;
+
+        padding: 8px;
+
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.25);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        pointer-events: none;
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        z-index: 1015;
+    }
+
+
+    /* Mobile navigation open */
+    nav.mobile-open {
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+
+        pointer-events: auto;
+    }
+
+
+    /* Navigation links */
+    nav a {
+        width: 100%;
+
+        padding: 14px 18px;
+
+        font-size: 14px;
+
+        text-align: center;
+
+        border-radius: 10px;
+    }
+
+
+    nav a::after {
+        bottom: 5px;
+
+        height: 3px;
+    }
+
+
+    nav a:hover,
+    nav a.active {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+
+    .logo {
+        width: 50px;
+    }
+
+
+    .school-name h2 {
+        font-size: 14px;
+    }
+
+
+    .school-name p {
+        font-size: 8px;
+    }
+
+
+    .hamburger {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .hamburger span {
+        width: 22px;
+    }
+}
+    
 }
