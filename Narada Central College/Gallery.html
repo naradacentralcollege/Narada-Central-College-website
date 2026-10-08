@@ -6,296 +6,786 @@
     <title>Gallery - NARADA CENTRAL COLLEGE</title>
     <link rel="stylesheet" type="text/css" href="gallerystyles.css">
 </head>
+
 <body>
 
-    <header>
-         <div class="brand-container">
-        <img src="NCC LOGO\log.png" alt="School Logo" class="logo"> 
+<header>
+
+    <div class="brand-container">
+        <img src="NCC LOGO/log.png" alt="School Logo" class="logo">
+
         <div class="school-name">
-           <h2>NARADA CENTRAL COLLEGE</h2>
+            <h2>NARADA CENTRAL COLLEGE</h2>
             <p>PARAKADUWA, RATHNAPURA</p>
         </div>
     </div>
-        <div class="menu-toggle">
+
+    <!-- HAMBURGER MENU -->
+    <button class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
         <span></span>
         <span></span>
         <span></span>
-    </div>
-        
-    <nav>
+
+    </button>
+
+    <!-- NAVIGATION -->
+    <nav id="mainNav">
         <a href="index.html">Home</a>
         <a href="about us.html">About Us</a>
         <a href="Gallery.html" class="active">Gallery</a>
         <a href="news.html">News</a>
         <a href="contact.html">Contact</a>
     </nav>
-    </header>
+
+</header>
 
 
-    <div class="page-title">
-        <h1 id="gallery-heading">GALLERY FOLDERS</h1>
+<!-- PAGE TITLE -->
+
+<div class="page-title">
+    <h1 id="gallery-heading">GALLERY FOLDERS</h1>
+</div>
+
+
+<!-- BACK BUTTON -->
+
+<button class="back-btn" id="backBtn" onclick="showFolders()">
+    ← Back to Folders
+</button>
+
+
+<!-- FOLDER CONTAINER -->
+
+<div class="folder-container" id="folderContainer">
+
+    <div class="folder-card"
+         onclick="openFolder('sports-meet', 'Sports Meet 2026')">
+
+        <img src="images/a.jpg"
+             alt="Sports Meet Cover"
+             class="folder-cover-img">
+
+        <h3>Sports Meet 2026</h3>
+        <p>View Event Photos</p>
+
     </div>
 
-    <button class="back-btn" id="backBtn" onclick="showFolders()">← Back to Folders</button>
 
-    <div class="folder-container" id="folderContainer">
-        <div class="folder-card" onclick="openFolder('sports-meet', 'Sports Meet 2026')">
-            <img src="images/a.jpg" alt="Sports Meet Cover" class="folder-cover-img">
-            <h3>Sports Meet 2026</h3>
-            <p>View Event Photos</p>
-        </div>
+    <div class="folder-card"
+         onclick="openFolder('big-match', 'Big Match 2026')">
 
-        <div class="folder-card" onclick="openFolder('big-match', 'Big Match 2026')">
-            <img src="images/b.jpg" alt="Big Match Cover" class="folder-cover-img">
-            <h3>Big Match 2026</h3>
-            <p>View Event Photos</p>
-        </div>
+        <img src="images/b.jpg"
+             alt="Big Match Cover"
+             class="folder-cover-img">
+
+        <h3>Big Match 2026</h3>
+        <p>View Event Photos</p>
+
     </div>
 
-    <div class="gallery-container" id="galleryContainer"></div>
+</div>
 
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <div class="modal-wrapper">
-            <img class="modal-content" id="fullImage" alt="Enlarged View">
-            <div class="modal-watermark-footer">
-                <div class="m-wm-left" id="modalSclText">NARADA CENTRAL COLLEGE</div>
-                <div class="m-wm-right">
-                    <div id="modalSocText">Photography Society</div>
-                    <div id="modalEvtText">Event Name</div>
-                </div>
+
+<!-- GALLERY -->
+
+<div class="gallery-container" id="galleryContainer"></div>
+
+
+<!-- IMAGE MODAL -->
+
+<div id="imageModal" class="modal">
+
+    <button class="close" type="button">&times;</button>
+
+    <div class="modal-wrapper">
+
+        <img class="modal-content"
+             id="fullImage"
+             alt="Enlarged View">
+
+        <div class="modal-watermark-footer">
+
+            <div class="m-wm-left" id="modalSclText">
+                NARADA CENTRAL COLLEGE
             </div>
+
+            <div class="m-wm-right">
+
+                <div id="modalSocText">
+                    Photography Society
+                </div>
+
+                <div id="modalEvtText">
+                    Event Name
+                </div>
+
+            </div>
+
         </div>
+
     </div>
 
-    <script>
-        // ★ ඔබට පින්තූර 650 ක වුණත් විස්තර මෙතන ලේසියෙන්ම යටින් යටට දාගෙන යන්න පුළුවන් ★
-        // folder: folder-card එකේ දාපු 'sports-meet' හෝ 'big-match' කියන ID එක
-        // img: පින්තූරය තියෙන Path එක
-        // title: පින්තූරයට යටින් වැටෙන นම
-        // event: Watermark එක ඇතුළේ දර්ශනය විය යුතු ඉවෙන්ට් එකේ නම
-        const galleryData = [
-            // --- SPORTS MEET PHOTOS ---
-            { folder: 'sports-meet', img: 'images/a.jpg', title: '100m Race Event', event: 'Sports Meet 2026' },
-            { folder: 'sports-meet', img: 'images/b.jpg', title: 'House Decorations', event: 'Sports Meet 2026' },
-             { folder: 'sports-meet', img: 'images/b.jpg', title: 'House Decorations', event: 'Sports Meet 2026' },
-            // ඔබට තව ක්‍රීඩා උත්සවයේ පින්තූර තියෙනවා නම් පහළින් මේ විදිහට දාන්න:
-            // { folder: 'sports-meet', img: 'images/sports3.jpg', title: 'Relay Event', event: 'Sports Meet 2026' },
+</div>
 
-            // --- BIG MATCH PHOTOS ---
-            { folder: 'big-match', img: 'images/a.jpg', title: 'Opening Ceremony', event: 'Big Match 2026' },
-            { folder: 'big-match', img: 'images/b.jpg', title: 'Opening Ceremony', event: 'Big Match 2026' },
-            // ඔබට තව බිග් මැච් පින්තූර තියෙනවා නම් පහළින් මේ විදිහට දාන්න:
-            { folder: 'big-match', img: 'images/bm2.jpg', title: 'Cheering Squad', event: 'Big Match 2026' },
-        ];
 
-        let activeImages = [];
-        let currentImgIndex = -1;
+<!-- FOOTER -->
 
-        // මුළු පින්තූර ලැයිස්තුවම HTML එකට auto generate කරන ප්‍රධාන ශ්‍රිතය (පින්තූර 650ටම එක පාර ව්‍යුහය සාදයි)
-        function renderGallery() {
-            const container = document.getElementById('galleryContainer');
-            container.innerHTML = ''; // පැරණි දත්ත clear කිරීම
+<footer class="footer">
 
-            galleryData.forEach(item => {
-                // ඔබේ මුල් කේතයේ තිබූ Watermark, HTML Classes සහ Layout එක ඒ විදිහටම මෙතන ක්‍රියාත්මක වේ.
-                // පින්තූර 650ක් එක පාර load වෙද්දී වෙබ් පිටුව හිරවීම වැළැක්වීමට loading="lazy" එකතු කර ඇත.
-                const itemHTML = `
-                    <div class="gallery-item" data-folder="${item.folder}">
-                        <div class="img-container">
-                            <img src="${item.img}" alt="${item.title}" loading="lazy">
-                            <div class="image-watermark-footer">
-                                <div class="wm-left">NARADA CENTRAL COLLEGE</div>
-                                <div class="wm-right">
-                                    <span class="soc-text">Photography Society</span>
-                                    <span class="evt-text">${item.event}</span>
-                                </div>
-                            </div>
+    <div class="footer-container">
+
+        <div class="footer-col brand-col">
+
+            <img src="NCC LOGO/log.png"
+                 alt="Narada College Logo"
+                 class="footer-logo">
+
+            <div class="brand-text">
+                <h2>
+                    R/Pathberiya Narada Central College
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="footer-links-wrapper">
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-col">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about us.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="news.html">News</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="footer-col">
+
+                <h3>Contact Us</h3>
+
+                <p>Phone : 036-2258105</p>
+
+                <p>
+                    E-mail : parakaduwanarada036@gmail.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            Copyright © 2026 Narada College |
+            Designed By: Ruwanpura National College of Education
+            2022-2024 batch
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   GALLERY DATA
+========================================= */
+
+const galleryData = [
+
+    /* SPORTS MEET */
+
+    {
+        folder: 'sports-meet',
+        img: 'images/a.jpg',
+        title: '100m Race Event',
+        event: 'Sports Meet 2026'
+    },
+
+    {
+        folder: 'sports-meet',
+        img: 'images/b.jpg',
+        title: 'House Decorations',
+        event: 'Sports Meet 2026'
+    },
+
+    {
+        folder: 'sports-meet',
+        img: 'images/b.jpg',
+        title: 'House Decorations',
+        event: 'Sports Meet 2026'
+    },
+
+
+    /* BIG MATCH */
+
+    {
+        folder: 'big-match',
+        img: 'images/a.jpg',
+        title: 'Opening Ceremony',
+        event: 'Big Match 2026'
+    },
+
+    {
+        folder: 'big-match',
+        img: 'images/b.jpg',
+        title: 'Opening Ceremony',
+        event: 'Big Match 2026'
+    },
+
+    {
+        folder: 'big-match',
+        img: 'images/bm2.jpg',
+        title: 'Cheering Squad',
+        event: 'Big Match 2026'
+    }
+
+];
+
+
+let activeImages = [];
+let currentImgIndex = -1;
+
+
+/* =========================================
+   RENDER GALLERY
+========================================= */
+
+function renderGallery() {
+
+    const container =
+        document.getElementById('galleryContainer');
+
+    container.innerHTML = '';
+
+    galleryData.forEach(function(item) {
+
+        const itemHTML = `
+
+            <div class="gallery-item"
+                 data-folder="${item.folder}">
+
+                <div class="img-container">
+
+                    <img src="${item.img}"
+                         alt="${item.title}"
+                         loading="lazy">
+
+                    <div class="image-watermark-footer">
+
+                        <div class="wm-left">
+                            NARADA CENTRAL COLLEGE
                         </div>
-                        <h4>${item.title}</h4>
+
+                        <div class="wm-right">
+
+                            <span class="soc-text">
+                                Photography Society
+                            </span>
+
+                            <span class="evt-text">
+                                ${item.event}
+                            </span>
+
+                        </div>
+
                     </div>
-                `;
-                container.insertAdjacentHTML('beforeend', itemHTML);
-            });
+
+                </div>
+
+                <h4>${item.title}</h4>
+
+            </div>
+        `;
+
+        container.insertAdjacentHTML(
+            'beforeend',
+            itemHTML
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   OPEN FOLDER
+========================================= */
+
+function openFolder(folderName, displayName) {
+
+    document.getElementById(
+        'folderContainer'
+    ).style.display = 'none';
+
+    document.getElementById(
+        'galleryContainer'
+    ).style.display = 'grid';
+
+    document.getElementById(
+        'backBtn'
+    ).style.display = 'block';
+
+    document.getElementById(
+        'gallery-heading'
+    ).innerText = displayName;
+
+
+    const items =
+        document.querySelectorAll('.gallery-item');
+
+    activeImages = [];
+
+
+    items.forEach(function(item) {
+
+        if (
+            item.getAttribute('data-folder')
+            === folderName
+        ) {
+
+            item.style.display = 'block';
+
+            activeImages.push(
+                item.querySelector('img')
+            );
+
+        } else {
+
+            item.style.display = 'none';
+
         }
 
-        function openFolder(folderName, displayName) {
-            document.getElementById('folderContainer').style.display = 'none';
-            document.getElementById('galleryContainer').style.display = 'grid';
-            document.getElementById('backBtn').style.display = 'block';
-            document.getElementById('gallery-heading').innerText = displayName;
+    });
 
-            const items = document.querySelectorAll('.gallery-item');
-            activeImages = []; // Array එක Reset කිරීම
+}
 
-            items.forEach(item => {
-                if (item.getAttribute('data-folder') === folderName) {
-                    item.style.display = 'block';
-                    activeImages.push(item.querySelector('img'));
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+
+/* =========================================
+   SHOW FOLDERS
+========================================= */
+
+function showFolders() {
+
+    document.getElementById(
+        'folderContainer'
+    ).style.display = 'grid';
+
+    document.getElementById(
+        'galleryContainer'
+    ).style.display = 'none';
+
+    document.getElementById(
+        'backBtn'
+    ).style.display = 'none';
+
+    document.getElementById(
+        'gallery-heading'
+    ).innerText = 'GALLERY FOLDERS';
+
+    activeImages = [];
+
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+const modal =
+    document.getElementById('imageModal');
+
+const modalImg =
+    document.getElementById('fullImage');
+
+const closeBtn =
+    document.querySelector('.close');
+
+
+function updateModalImage(imgElement) {
+
+    if (!imgElement) return;
+
+
+    modalImg.src = imgElement.src;
+
+
+    const container =
+        imgElement.parentElement;
+
+
+    const sclText =
+        container.querySelector(
+            '.wm-left'
+        ).innerText;
+
+
+    const socText =
+        container.querySelector(
+            '.soc-text'
+        ).innerText;
+
+
+    const evtText =
+        container.querySelector(
+            '.evt-text'
+        ).innerText;
+
+
+    document.getElementById(
+        'modalSclText'
+    ).innerText = sclText;
+
+
+    document.getElementById(
+        'modalSocText'
+    ).innerText = socText;
+
+
+    document.getElementById(
+        'modalEvtText'
+    ).innerText = evtText;
+
+}
+
+
+/* =========================================
+   OPEN IMAGE
+========================================= */
+
+document.addEventListener(
+    'click',
+    function(e) {
+
+        if (
+            e.target &&
+            e.target.matches(
+                '.gallery-item img'
+            )
+        ) {
+
+            modal.style.display = 'block';
+
+            currentImgIndex =
+                activeImages.indexOf(e.target);
+
+            updateModalImage(e.target);
+
         }
 
-        function showFolders() {
-            document.getElementById('folderContainer').style.display = 'grid';
-            document.getElementById('galleryContainer').style.display = 'none';
-            document.getElementById('backBtn').style.display = 'none';
-            document.getElementById('gallery-heading').innerText = 'GALLERY FOLDERS';
-            activeImages = [];
-        }
+    }
+);
 
-        // --- Lightbox Modal Script ---
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("fullImage");
-        const span = document.getElementsByClassName("close")[0];
 
-        function updateModalImage(imgElement) {
-            if (!imgElement) return;
-            
-            modalImg.src = imgElement.src;
+/* =========================================
+   KEYBOARD NAVIGATION
+========================================= */
 
-            const container = imgElement.parentElement;
-            const sclText = container.querySelector('.wm-left').innerText;
-            const socText = container.querySelector('.soc-text').innerText;
-            const evtText = container.querySelector('.evt-text').innerText;
+document.addEventListener(
+    'keydown',
+    function(event) {
 
-            document.getElementById('modalSclText').innerText = sclText;
-            document.getElementById('modalSocText').innerText = socText;
-            document.getElementById('modalEvtText').innerText = evtText;
-        }
+        if (
+            modal.style.display === 'block' &&
+            activeImages.length > 0
+        ) {
 
-        // පින්තූරයක් ක්ලික් කළ විට
-        document.addEventListener('click', function(e) {
-            if(e.target && e.target.matches('.gallery-item img')) {
-                modal.style.display = "block";
-                currentImgIndex = activeImages.indexOf(e.target);
-                updateModalImage(e.target);
+            if (event.key === 'ArrowRight') {
+
+                currentImgIndex =
+                    (currentImgIndex + 1)
+                    % activeImages.length;
+
+                updateModalImage(
+                    activeImages[currentImgIndex]
+                );
+
             }
-        });
 
-        // කීබෝඩ් එකේ Arrow Keys ක්‍රියාත්මක කරන කොටස
-        document.addEventListener('keydown', function(event) {
-            if (modal.style.display === "block" && activeImages.length > 0) {
-                if (event.key === "ArrowRight") {
-                    currentImgIndex = (currentImgIndex + 1) % activeImages.length;
-                    updateModalImage(activeImages[currentImgIndex]);
-                } else if (event.key === "ArrowLeft") {
-                    currentImgIndex = (currentImgIndex - 1 + activeImages.length) % activeImages.length;
-                    updateModalImage(activeImages[currentImgIndex]);
-                } else if (event.key === "Escape") {
-                    modal.style.display = "none";
-                }
+
+            if (event.key === 'ArrowLeft') {
+
+                currentImgIndex =
+                    (
+                        currentImgIndex -
+                        1 +
+                        activeImages.length
+                    )
+                    % activeImages.length;
+
+                updateModalImage(
+                    activeImages[currentImgIndex]
+                );
+
             }
-        });
 
-        span.onclick = function() {
-            modal.style.display = "none";
+
+            if (event.key === 'Escape') {
+
+                modal.style.display = 'none';
+
+            }
+
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+    }
+);
 
-        // පිටුව මුලින්ම load වන විට පින්තූර ලිස්තුව සකසා ගන්න
-        renderGallery();
-    </script>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+/* =========================================
+   CLOSE MODAL
+========================================= */
 
-    if (!menuToggle || !mainNav) {
+closeBtn.onclick = function() {
+
+    modal.style.display = 'none';
+
+};
+
+
+window.onclick = function(event) {
+
+    if (event.target === modal) {
+
+        modal.style.display = 'none';
+
+    }
+
+};
+
+
+/* =========================================
+   MOBILE SWIPE
+========================================= */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+modal.addEventListener(
+    'touchstart',
+    function(event) {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+);
+
+
+modal.addEventListener(
+    'touchend',
+    function(event) {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+    },
+    { passive: true }
+);
+
+
+function handleSwipe() {
+
+    const swipeDistance =
+        touchEndX - touchStartX;
+
+
+    if (
+        Math.abs(swipeDistance) < 50 ||
+        activeImages.length <= 1
+    ) {
         return;
     }
 
-    menuToggle.addEventListener("click", function () {
 
-        menuToggle.classList.toggle("active");
-        mainNav.classList.toggle("active");
+    if (swipeDistance < 0) {
 
-        const isOpen = mainNav.classList.contains("active");
+        currentImgIndex =
+            (currentImgIndex + 1)
+            % activeImages.length;
 
-        menuToggle.setAttribute("aria-expanded", isOpen);
-    });
+    } else {
 
-    /* Close menu after clicking a navigation link */
-    const navLinks = mainNav.querySelectorAll("a");
+        currentImgIndex =
+            (
+                currentImgIndex -
+                1 +
+                activeImages.length
+            )
+            % activeImages.length;
 
-    navLinks.forEach(function (link) {
+    }
 
-        link.addEventListener("click", function () {
 
-            menuToggle.classList.remove("active");
-            mainNav.classList.remove("active");
+    updateModalImage(
+        activeImages[currentImgIndex]
+    );
 
-            menuToggle.setAttribute("aria-expanded", "false");
+}
+
+
+/* =========================================
+   HAMBURGER MENU
+========================================= */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+
+        const menuToggle =
+            document.getElementById(
+                'menuToggle'
+            );
+
+        const mainNav =
+            document.getElementById(
+                'mainNav'
+            );
+
+
+        if (!menuToggle || !mainNav) {
+            return;
+        }
+
+
+        menuToggle.addEventListener(
+            'click',
+            function() {
+
+                menuToggle.classList.toggle(
+                    'active'
+                );
+
+                mainNav.classList.toggle(
+                    'active'
+                );
+
+
+                const isOpen =
+                    mainNav.classList.contains(
+                        'active'
+                    );
+
+
+                menuToggle.setAttribute(
+                    'aria-expanded',
+                    isOpen
+                );
+
+            }
+        );
+
+
+        /* CLOSE AFTER CLICK */
+
+        const navLinks =
+            mainNav.querySelectorAll('a');
+
+
+        navLinks.forEach(function(link) {
+
+            link.addEventListener(
+                'click',
+                function() {
+
+                    menuToggle.classList.remove(
+                        'active'
+                    );
+
+                    mainNav.classList.remove(
+                        'active'
+                    );
+
+                    menuToggle.setAttribute(
+                        'aria-expanded',
+                        'false'
+                    );
+
+                }
+            );
 
         });
 
-    });
 
-    /* Close menu when screen becomes desktop size */
-    window.addEventListener("resize", function () {
+        /* CLOSE WHEN DESKTOP */
 
-        if (window.innerWidth > 768) {
+        window.addEventListener(
+            'resize',
+            function() {
 
-            menuToggle.classList.remove("active");
-            mainNav.classList.remove("active");
+                if (
+                    window.innerWidth > 768
+                ) {
 
-            menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.classList.remove(
+                        'active'
+                    );
 
-        }
+                    mainNav.classList.remove(
+                        'active'
+                    );
 
-    });
+                    menuToggle.setAttribute(
+                        'aria-expanded',
+                        'false'
+                    );
 
-});
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
+
+renderGallery();
+
 </script>
-   <footer class="footer">
-    <div class="footer-container">
-        
-        <!-- වම් පැත්තේ ලාංඡනය සහ නම -->
-        <div class="footer-col brand-col">
-            <img src="NCC LOGO/log.png" alt="Narada College Logo" class="footer-logo">
-            <div class="brand-text">
-                <h2>R/Pathberiya Narada Central College</h2>
-            </div>
-        </div>
-
-        <!-- දකුණු පැත්තෙන් Quick Links සහ Contact Us -->
-        <div class="footer-links-wrapper">
-            <!-- Quick Links -->
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about us.html">About</a></li>
-                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Contact Us & Follow Us -->
-            <div class="footer-col">
-                <h3>Contact Us</h3>
-                <p>Phone : 036-2258105 </p>
-                <p> E-mail  : parakaduwanarada036@gmail.com </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    
-    <!-- Footer Bottom Bar -->
-    <div class="footer-bottom">
-        <p>Copyright © 2026 Narada College | Designed By: Ruwanpura National College of Education 2022-2024 batch</p>
-    </div>
-</footer>
 
 </body>
 </html>
