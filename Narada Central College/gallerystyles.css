@@ -1477,6 +1477,10 @@ footer {
             border: none !important;
             box-shadow: none !important;
         }
+ .navbar-toggler-icon,
+ .hamburger-icon {
+    color: #004d25 !important;
+       }
 
 
     /* HAMBURGER LINES */
