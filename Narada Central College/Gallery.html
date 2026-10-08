@@ -202,6 +202,58 @@
         // පිටුව මුලින්ම load වන විට පින්තූර ලිස්තුව සකසා ගන්න
         renderGallery();
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (!menuToggle || !mainNav) {
+        return;
+    }
+
+    menuToggle.addEventListener("click", function () {
+
+        menuToggle.classList.toggle("active");
+        mainNav.classList.toggle("active");
+
+        const isOpen = mainNav.classList.contains("active");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    /* Close menu after clicking a navigation link */
+    const navLinks = mainNav.querySelectorAll("a");
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            menuToggle.classList.remove("active");
+            mainNav.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+        });
+
+    });
+
+    /* Close menu when screen becomes desktop size */
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 768) {
+
+            menuToggle.classList.remove("active");
+            mainNav.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+        }
+
+    });
+
+});
+</script>
    <footer class="footer">
     <div class="footer-container">
         
