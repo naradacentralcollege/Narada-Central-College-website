@@ -672,28 +672,18 @@ footer {
    MOBILE
 ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+   .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    flex-shrink: 0;
+    cursor: pointer;
+    z-index: 1020;
+}
 
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-    /* =========================================
-   HAMBURGER
-========================================= */
-
-
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        z-index: 1020;
-        flex-shrink: 0;
-        margin-left: 10px;
-    }
 
     .menu-toggle span {
         display: block;
@@ -704,22 +694,15 @@ footer {
         transition: all 0.3s ease-in-out;
     }
 
-    /* Hamburger -> X */
 
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
+    body {
+        width: 100%;
+        overflow-x: hidden;
     }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
+ 
 
 
-
+    
     /* HEADER */
 
     header {
@@ -755,12 +738,6 @@ footer {
         font-size: 8px;
         letter-spacing: 0.7px;
         margin-top: 3px;
-    }
-
-    .menu-toggle {
-        flex-shrink: 0;
-        width: 40px;
-        height: 38px;
     }
 
 
