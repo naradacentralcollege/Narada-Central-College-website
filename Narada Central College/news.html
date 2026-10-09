@@ -192,19 +192,27 @@
         <p>Copyright © 2026 Narada College | Designed By: Ruwanpura National College of Education 2022-2024 batch</p>
     </div>
 </footer>
-   <script>
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
+  
+const menuToggle = document.querySelector(".menu-toggle");
+const mainNav = document.querySelector("header nav#mainNav");
 
 if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', function () {
-        const isOpen = mainNav.classList.toggle('active');
+    menuToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("active");
 
-        menuToggle.classList.toggle('active', isOpen);
-        menuToggle.setAttribute('aria-expanded', isOpen);
+        menuToggle.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            mainNav.classList.remove("active");
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
     });
 }
-</script>
+
 
 </body>
 </html>
