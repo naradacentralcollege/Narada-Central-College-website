@@ -1213,13 +1213,6 @@ header { padding: 12px 15px !important; }
     }
 
 
-    /* Show hamburger */
-    .hamburger {
-        display: flex;
-        flex-shrink: 0;
-    }
-
-
     /* Mobile navigation closed */
     nav {
         position: absolute;
