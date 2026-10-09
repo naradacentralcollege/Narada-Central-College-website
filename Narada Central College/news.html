@@ -16,11 +16,17 @@
                 <p>PARAKADUWA, RATHNAPURA</p>
             </div>
         </div>
-        <div class="menu-toggle">
+       <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
+
+<nav id="mainNav">
+    <!-- ඔයාගේ දැනට තිබෙන navigation links මෙතැනම තබන්න -->
+</nav>
 
     <nav>
         <a href="index.html">Home</a>
@@ -186,6 +192,19 @@
         <p>Copyright © 2026 Narada College | Designed By: Ruwanpura National College of Education 2022-2024 batch</p>
     </div>
 </footer>
+    <script>
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+
+if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', function () {
+        const isOpen = mainNav.classList.toggle('active');
+
+        menuToggle.classList.toggle('active', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen);
+    });
+}
+</script>
 
 </body>
 </html>
