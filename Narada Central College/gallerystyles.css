@@ -1499,6 +1499,8 @@ footer {
 
         background: var(--accent) !important;
 
+        background-color: #0a3221 !important; 
+        
         border-radius: 3px !important;
 
         opacity: 1 !important;
