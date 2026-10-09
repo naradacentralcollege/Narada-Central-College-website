@@ -1113,49 +1113,57 @@ footer {
 
         width: 100%;
     }
-/* =========================================================
-   MOBILE HAMBURGER MENU
-   Desktop navigation remains unchanged
-   ========================================================= */
+/* ========================================================= FIXED MOBILE HAMBURGER MENU ========================================================= */
 
-.hamburger {
-    display: none;
+/* Desktop - Keep hamburger hidden */ .menu-toggle { display: none; }
 
-    width: 45px;
-    height: 45px;
+/* Mobile hamburger and navigation */ @media screen and (max-width: 768px) {
 
-    background: var(--primary);
-    border: 2px solid var(--accent);
-    border-radius: 10px;
+/* Keep existing header layout */ header { position: relative !important; display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; width: 100%; padding: 15px 20px !important; text-align: left !important; }
 
-    cursor: pointer;
+.brand-container { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 10px !important; flex: 1; min-width: 0; }
 
-    padding: 8px;
+.logo { width: 55px !important; height: auto !important; margin: 0 !important; flex-shrink: 0; }
 
-    align-items: center;
-    justify-content: center;
+.school-name { margin: 0 !important; min-width: 0; }
 
-    flex-direction: column;
+.school-name h2 { font-size: 16px !important; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    gap: 5px;
+.school-name p { font-size: 9px !important; white-space: nowrap; }
 
-    z-index: 1020;
-}
+/* Hamburger button */ .menu-toggle { display: flex !important; position: relative; width: 45px !important; height: 45px !important; min-width: 45px; padding: 8px !important; margin: 0 0 0 10px !important; background: var(--primary) !important; border: 2px solid var(--accent) !important; border-radius: 10px !important; align-items: center !important; justify-content: center !important; flex-direction: column !important; gap: 5px !important; cursor: pointer; z-index: 9999 !important; opacity: 1 !important; visibility: visible !important; }
 
+/* Three visible gold lines */ .menu-toggle span { display: block !important; width: 24px !important; height: 3px !important; min-height: 3px; flex-shrink: 0; background: var(--accent) !important; border-radius: 3px !important; opacity: 1; visibility: visible; transform: none; transition: all 0.3s ease; }
 
-/* Hamburger lines */
-.hamburger span {
-    display: block;
+/* Mobile navigation closed */ header nav#mainNav { position: absolute !important; top: calc(100% + 8px) !important; left: 15px !important; right: 15px !important; width: auto !important; margin: 0 !important; padding: 8px !important; display: flex !important; flex-direction: column !important; align-items: stretch !important; justify-content: flex-start !important; gap: 2px; background: var(--primary) !important; border-radius: 15px !important; box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transform: translateY(-10px) !important; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important; z-index: 9998 !important; }
 
-    width: 24px;
-    height: 3px;
+/* Navigation open */ header nav#mainNav.active { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateY(0) !important; }
 
-    background-color: var(--accent);
+/* Navigation links */ header nav#mainNav a { display: block !important; width: 100% !important; flex: none !important; padding: 14px 18px !important; margin: 0 !important; color: rgba(255, 255, 255, 0.95) !important; text-align: center !important; font-size: 14px !important; border-radius: 10px !important; }
 
-    border-radius: 3px;
+header nav#mainNav a:hover, header nav#mainNav a.active { color: var(--accent) !important; background-color: rgba(255, 255, 255, 0.08) !important; }
 
-    transition: all 0.3s ease;
-}
+header nav#mainNav a::after { bottom: 4px !important; height: 3px !important; }
+
+/* Hamburger transforms to X when active */ .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg) !important; }
+
+.menu-toggle.active span:nth-child(2) { opacity: 0 !important; }
+
+.menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg) !important; } }
+
+/* Extra small phones */ @media screen and (max-width: 380px) {
+
+header { padding: 12px 15px !important; }
+
+.logo { width: 50px !important; }
+
+.school-name h2 { font-size: 14px !important; }
+
+.school-name p { font-size: 8px !important; }
+
+.menu-toggle { width: 42px !important; height: 42px !important; min-width: 42px !important; }
+
+.menu-toggle span { width: 22px !important; } }
 
 
 /* =========================================================
