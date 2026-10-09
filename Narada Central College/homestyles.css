@@ -1024,20 +1024,12 @@ header nav#mainNav a:hover, header nav#mainNav a.active { color: var(--accent) !
 
 header nav#mainNav a::after { bottom: 4px !important; height: 3px !important; }
 
-@media screen and (max-width: 768px) {
+/* Hamburger transforms to X when active */ .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg) !important; }
 
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg) !important;
-    }
+.menu-toggle.active span:nth-child(2) { opacity: 0 !important; }
 
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0 !important;
-    }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg) !important; } }
 
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg) !important;
-    }
-}
 /* Extra small phones */ @media screen and (max-width: 380px) {
 
 header { padding: 12px 15px !important; }
@@ -2002,24 +1994,4 @@ header { padding: 12px 15px !important; }
 
         right: 8px;
     }
-}
-.menu-toggle span {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
 }
