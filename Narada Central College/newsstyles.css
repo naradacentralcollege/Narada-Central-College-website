@@ -1,3 +1,4 @@
+
 /* =========================================
    NARADA CENTRAL COLLEGE - NEWS PAGE
    Premium Green & Gold Theme
@@ -24,6 +25,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -289,6 +294,38 @@ header .menu-toggle {
     border-color: var(--primary-light);
 }
 
+/* Article details */
+
+.news-container details {
+    margin-top: 12px;
+}
+
+.news-container details summary {
+    display: inline-block;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 3px;
+}
+
+.news-container details summary:hover {
+    color: var(--primary-light);
+}
+
+.detailed-box {
+    margin-top: 15px;
+    padding: 15px;
+    color: var(--text-main);
+    background: #ffffff;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
 /* =========================================
    NEWS GRID
    ========================================= */
@@ -303,6 +340,7 @@ header .menu-toggle {
 .news-card {
     display: flex;
     flex-direction: column;
+    min-width: 0;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
@@ -329,6 +367,7 @@ header .menu-toggle {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    min-width: 0;
     padding: 25px;
 }
 
@@ -433,6 +472,7 @@ footer {
     color: #cbd5e1;
     font-size: 14px;
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
 .footer-col ul li a:hover {
@@ -472,11 +512,16 @@ footer {
     font-size: 13px;
 }
 
+.footer-bottom p {
+    overflow-wrap: anywhere;
+}
+
 /* =========================================
    TABLET
    ========================================= */
 
 @media screen and (max-width: 900px) {
+
     .featured-news {
         grid-template-columns: 1fr;
     }
@@ -511,7 +556,8 @@ footer {
 
 /* =========================================
    MOBILE HAMBURGER MENU
-   Full-width dropdown, About-page style
+   Reference button size: 45px x 45px
+   Full-width dropdown
    ========================================= */
 
 @media screen and (max-width: 768px) {
@@ -519,16 +565,15 @@ footer {
     /* Header row */
 
     header {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 10px;
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding: 15px 20px !important;
-        position: relative !important;
-        overflow: visible !important;
-        text-align: left !important;
+        padding: 15px 20px;
+        text-align: left;
         z-index: 1010;
     }
 
@@ -566,134 +611,115 @@ footer {
         font-size: 9px;
         letter-spacing: 0.4px;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    /* Three-line hamburger button */
+    /* Hamburger button */
 
     header .menu-toggle {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 5px !important;
-        width: 45px !important;
-        height: 45px !important;
-        min-width: 45px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: var(--primary) !important;
-        border: 2px solid var(--accent) !important;
-        border-radius: 10px !important;
-        cursor: pointer;
-        flex-shrink: 0;
+         display: flex;
         position: relative;
-        z-index: 1012;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        padding: 8px;
+        margin: 0 0 0 10px;
+        background: var(--primary);
+        border: 2px solid var(--accent);
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1020;
+        flex-shrink: 0;
     }
+
+    /* Three gold lines */
 
     header .menu-toggle span {
-        display: block !important;
-        width: 24px !important;
-        height: 3px !important;
-        min-height: 3px !important;
-        padding: 0 !important;
-        background: var(--accent) !important;
-        border: 0 !important;
-        border-radius: 3px !important;
+         display: block;
+        width: 24px;
+        height: 3px;
+        min-height: 3px;
+        flex-shrink: 0;
+        background: var(--accent);
+        border-radius: 3px;
         opacity: 1;
-        transform: none;
-        transition: transform 0.25s ease, opacity 0.25s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* -------------------------------------
-       FULL-WIDTH DROPDOWN
-       ------------------------------------- */
+    /* Full-width dropdown: closed state */
 
     header nav#mainNav {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        gap: 2px !important;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 15px;
+        right: 15px;
+        width: auto;
+        margin: 0;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 2px;
+        background: var(--primary);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30);
+        overflow: hidden;
 
-        position: absolute !important;
-        top: 100% !important;
-
-        /* Span the full header/page width */
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        max-width: none !important;
-        height: auto !important;
-
-        margin: 0 !important;
-        padding: 8px !important;
-
-        background: var(--primary) !important;
-        border: 1px solid rgba(224, 169, 109, 0.45) !important;
-        border-top: 2px solid var(--accent) !important;
-        border-radius: 0 0 15px 15px !important;
-        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.3) !important;
-
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-        transform: translateY(-10px) !important;
-
-        overflow: hidden !important;
-        z-index: 1011 !important;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
 
         transition:
             opacity 0.25s ease,
             transform 0.25s ease,
-            visibility 0.25s ease !important;
+            visibility 0.25s ease;
+
+        z-index: 1015;
     }
 
     /* Dropdown open */
 
     header nav#mainNav.active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        transform: translateY(0) !important;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 
-    /* Dropdown links */
-
-    header nav#mainNav a {
-        display: block !important;
-        flex: none !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 14px 18px !important;
-
-        color: rgba(255, 255, 255, 0.95) !important;
-        text-align: center !important;
-        text-decoration: none !important;
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        line-height: 1.5 !important;
-        letter-spacing: 0.5px !important;
-
-        white-space: normal !important;
-        border-radius: 10px !important;
+  header nav#mainNav a {
+        display: block;
+        width: 100%;
+        flex: none;
+        padding: 14px 18px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.95);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 10px;
         background: transparent;
     }
 
-    /* Remove desktop underline in dropdown */
-
-    header nav#mainNav a::after {
-        display: none !important;
-    }
-
-    /* Hover and current page */
-
     header nav#mainNav a:hover,
     header nav#mainNav a.active {
-        color: var(--accent) !important;
-        background-color: rgba(255, 255, 255, 0.08) !important;
+        color: var(--accent);
+        background-color: rgba(255, 255, 255, 0.08);
     }
 
-    /* Hamburger transforms into X */
+    header nav#mainNav a::after {
+        bottom: 4px;
+        height: 3px;
+    }
+
+    /* Hamburger changes into X */
 
     header .menu-toggle.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg) !important;
@@ -734,13 +760,25 @@ footer {
         font-size: 23px;
     }
 
+    .featured-img img {
+        min-height: 220px;
+        max-height: 350px;
+    }
+
+    .card-img img {
+        height: 200px;
+    }
+
     .footer-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 30px;
     }
 
     .footer-col.brand-col {
+        width: 100%;
+        min-width: 0;
         flex-direction: column;
         align-items: center;
     }
@@ -750,10 +788,20 @@ footer {
         gap: 30px;
         width: 100%;
     }
+
+    .footer-col {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        line-height: 1.7;
+    }
 }
 
 /* =========================================
    SMALL PHONES
+   Button size: 42px x 42px
    ========================================= */
 
 @media screen and (max-width: 380px) {
@@ -798,8 +846,26 @@ footer {
         padding: 18px;
     }
 
+    .featured-content h2 {
+        font-size: 21px;
+    }
+
     .card-content {
         padding: 20px;
+    }
+
+    .news-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .footer-links-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .footer-col {
+        width: 100%;
     }
 }
 
@@ -808,6 +874,10 @@ footer {
    ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     header nav#mainNav,
     header nav#mainNav a,
     header .menu-toggle span,
