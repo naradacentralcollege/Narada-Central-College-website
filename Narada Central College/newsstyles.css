@@ -102,44 +102,32 @@ header {
    DESKTOP NAVIGATION
    ========================================= */
 
-header nav#mainNav {
+nav {
+    background: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    position: static;
-    background: var(--primary);
     border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(10, 50, 33, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 25px rgba(10, 50, 33, 0.2);
     overflow: hidden;
 }
 
-header nav#mainNav a {
-    display: block;
-    flex: 0 0 auto;
-    width: auto;
-    position: relative;
-    padding: 20px 30px;
+nav a {
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
+    padding: 20px 60px;
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.5px;
-    white-space: nowrap;
-    border-radius: 0;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    position: relative;
 }
 
 header nav#mainNav a::after {
-    content: "";
+    content: '';
     position: absolute;
-    bottom: 4px;
+    bottom: 0;
     left: 50%;
     width: 0;
     height: 4px;
