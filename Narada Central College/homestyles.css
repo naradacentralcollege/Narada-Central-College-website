@@ -1995,3 +1995,137 @@ header { padding: 12px 15px !important; }
         right: 8px;
     }
 }
+
+
+/* =========================================================
+   HAMBURGER MENU FIX — uses the existing HTML IDs/classes
+   ========================================================= */
+
+/* Desktop: keep the original horizontal navigation */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none !important;
+    }
+
+    header nav#navbar {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+}
+
+/* Mobile: show the button and open/close the matching #navbar */
+@media (max-width: 768px) {
+    header {
+        position: relative !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        width: 45px !important;
+        height: 45px !important;
+        min-width: 45px !important;
+        padding: 8px !important;
+        margin-left: 10px !important;
+        background: var(--primary) !important;
+        border: 2px solid var(--accent) !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        z-index: 1020 !important;
+        flex-shrink: 0 !important;
+    }
+
+    .menu-toggle span {
+        display: block !important;
+        width: 24px !important;
+        height: 3px !important;
+        min-height: 3px !important;
+        background: var(--accent) !important;
+        border-radius: 3px !important;
+        opacity: 1 !important;
+        transform: none;
+        transition: transform 0.25s ease, opacity 0.25s ease !important;
+    }
+
+    header nav#navbar {
+        position: absolute !important;
+        top: 100% !important;
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 2px !important;
+        margin: 8px 0 0 !important;
+        padding: 8px !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: var(--primary) !important;
+        border: none !important;
+        border-radius: 15px !important;
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
+        z-index: 1019 !important;
+    }
+
+    header nav#navbar.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    header nav#navbar a {
+        display: block !important;
+        width: 100% !important;
+        padding: 14px 18px !important;
+        margin: 0 !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+        border-bottom: none !important;
+    }
+
+    header nav#navbar a:hover,
+    header nav#navbar a.active {
+        color: var(--accent) !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    header nav#navbar a::after {
+        bottom: 4px !important;
+        height: 3px !important;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg) !important;
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
+}
