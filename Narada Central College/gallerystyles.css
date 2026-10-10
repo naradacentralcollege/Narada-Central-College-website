@@ -132,25 +132,58 @@ nav a.active::after {
    RESPONSIVE NAVIGATION
    ========================================================= */
 
-@media (max-width: 991px) {
+@media screen and (max-width: 768px) {
+
+    /* ---------- MOBILE HEADER ---------- */
 
     header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    nav {
-        border-radius: 20px;
-        flex-wrap: wrap;
-        width: 90%;
-    }
-
-    nav a {
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
         padding: 15px 20px;
-        font-size: 14px;
+        text-align: left;
+        z-index: 1010;
     }
-}
+
+    .brand-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .logo {
+        width: 55px;
+        height: auto;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .school-name {
+        margin: 0;
+        min-width: 0;
+    }
+
+    .school-name h2 {
+        font-size: 16px;
+        line-height: 1.1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .school-name p {
+        font-size: 9px;
+        letter-spacing: 0.7px;
+        margin-top: 3px;
+        white-space: nowrap;
+    }
 
 
 /* =========================================================
