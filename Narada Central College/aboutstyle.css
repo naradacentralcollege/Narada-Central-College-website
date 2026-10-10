@@ -933,3 +933,400 @@ header { padding: 12px 15px !important; }
         font-size: 10px;
     }
 }
+
+
+
+/* =========================================================
+   FINAL HAMBURGER MENU FIX
+   Works with <nav id="mainNav"> or <nav id="navbar">
+   Existing page styling above is preserved.
+   ========================================================= */
+
+/* Desktop navigation */
+@media screen and (min-width: 769px) {
+    header .menu-toggle {
+        display: none !important;
+    }
+
+    header nav {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        max-height: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+
+    header nav a {
+        width: auto !important;
+        flex: initial !important;
+    }
+}
+
+/* Mobile hamburger menu */
+@media screen and (max-width: 768px) {
+    header {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    header .brand-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    header .menu-toggle {
+        display: flex !important;
+        position: relative !important;
+        flex: 0 0 45px;
+        width: 45px !important;
+        min-width: 45px !important;
+        height: 45px !important;
+        min-height: 45px !important;
+        margin: 0 0 0 10px !important;
+        padding: 8px !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        background: var(--primary) !important;
+        border: 2px solid var(--accent) !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        z-index: 1020 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    header .menu-toggle span {
+        display: block !important;
+        width: 24px !important;
+        height: 3px !important;
+        min-height: 3px !important;
+        flex: 0 0 3px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: var(--accent) !important;
+        border: 0 !important;
+        border-radius: 3px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
+    }
+
+    /* Closed navigation menu */
+    header nav {
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
+        max-width: none !important;
+        max-height: calc(100vh - 100px) !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 2px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        background: var(--primary) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 15px !important;
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
+        transition: opacity 0.25s ease, transform 0.25s ease,
+                    visibility 0.25s ease !important;
+        z-index: 1019 !important;
+    }
+
+    /* Open navigation menu */
+    header nav.active {
+        max-height: calc(100vh - 100px) !important;
+        padding: 8px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    header nav a {
+        display: block !important;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 14px 18px !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+        background: transparent !important;
+    }
+
+    header nav a:hover,
+    header nav a.active {
+        color: var(--accent) !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    header nav a::after {
+        display: none !important;
+    }
+
+    /* Hamburger transforms into X when menu is open */
+    header .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg) !important;
+    }
+
+    header .menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    header .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
+}
+
+/* Small phones */
+@media screen and (max-width: 380px) {
+    header .menu-toggle {
+        flex-basis: 42px;
+        width: 42px !important;
+        min-width: 42px !important;
+        height: 42px !important;
+        min-height: 42px !important;
+    }
+
+    header .menu-toggle span {
+        width: 22px !important;
+    }
+    
+/* =====================================================
+   FINAL HAMBURGER MENU FIX
+   Only affects the header navigation menu
+   ===================================================== */
+
+/* Desktop view */
+@media screen and (min-width: 769px) {
+    header .menu-toggle {
+        display: none !important;
+    }
+
+    header nav#mainNav {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: auto !important;
+        max-height: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+
+    header nav#mainNav a {
+        width: auto !important;
+        flex: initial !important;
+    }
+}
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+
+    header {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    header .brand-container {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+
+    header .school-name {
+        min-width: 0 !important;
+    }
+
+    header .school-name h2 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Hamburger button */
+    header .menu-toggle {
+        display: flex !important;
+        flex: 0 0 45px !important;
+        width: 45px !important;
+        min-width: 45px !important;
+        height: 45px !important;
+        min-height: 45px !important;
+        margin: 0 0 0 10px !important;
+        padding: 8px !important;
+
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+
+        background: var(--primary) !important;
+        border: 2px solid var(--accent) !important;
+        border-radius: 10px !important;
+
+        cursor: pointer !important;
+        position: relative !important;
+        z-index: 1020 !important;
+    }
+
+    header .menu-toggle span {
+        display: block !important;
+        width: 24px !important;
+        height: 3px !important;
+        min-height: 3px !important;
+        flex: 0 0 3px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: var(--accent) !important;
+        border: none !important;
+        border-radius: 3px !important;
+        opacity: 1 !important;
+
+        transform: none;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
+    }
+
+    /* Navigation closed */
+    header nav#mainNav {
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
+        max-width: none !important;
+        max-height: calc(100vh - 100px) !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 2px !important;
+
+        margin: 0 !important;
+        padding: 8px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        background: var(--primary) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 15px !important;
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important;
+
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
+
+        transition: opacity 0.25s ease,
+                    transform 0.25s ease,
+                    visibility 0.25s ease !important;
+
+        z-index: 1019 !important;
+    }
+
+    /* Navigation open */
+    header nav#mainNav.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+
+    /* Navigation links */
+    header nav#mainNav a {
+        display: block !important;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+
+        margin: 0 !important;
+        padding: 14px 18px !important;
+
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-align: center !important;
+        font-size: 14px !important;
+
+        border-radius: 10px !important;
+        background: transparent !important;
+    }
+
+    header nav#mainNav a:hover,
+    header nav#mainNav a.active {
+        color: var(--accent) !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    header nav#mainNav a::after {
+        display: none !important;
+    }
+
+    /* Hamburger changes to X */
+    header .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg) !important;
+    }
+
+    header .menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+
+    header .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
+}
+
+/* Extra-small phones */
+@media screen and (max-width: 380px) {
+    header .menu-toggle {
+        flex-basis: 42px !important;
+        width: 42px !important;
+        min-width: 42px !important;
+        height: 42px !important;
+        min-height: 42px !important;
+    }
+
+    header .menu-toggle span {
+        width: 22px !important;
+    }
+}
+
+}
