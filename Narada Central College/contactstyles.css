@@ -1,408 +1,776 @@
-/* Premium Blue & Gold Palette Integrated */
-        :root {
-            --primary: #0a3221; /* Rich Deep Navy Green */
-            --primary-dark: #051d13; /* Extra Dark Green for Nav Bag */
-            --primary-light: #0b8d66; /* Mid Navy Green */
-            --accent: #e0a96d; /* Soft Luxury Gold */
-            --accent-hover: #dd994b; /* Vibrant Gold */
-            --background: #ffffff; /* Pure White Background */
-            --card-sub-bg: #f8f9fa; /* Ultra Light Gray for contrast */
-            --text-muted: #616e7d;
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-         
-        html {
-            scroll-behavior: smooth;
-        }
+/* =========================================================
+   PREMIUM EMERALD GREEN & GOLD THEME
+   NARADA CENTRAL COLLEGE - CONTACT PAGE
+   ========================================================= */
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background);
-            color: var(--primary);
-            overflow-x: hidden;
-            line-height: 1.6;
-   
-        }
+:root {
+    --primary: #0a3221;
+    --primary-dark: #051d13;
+    --primary-light: #0b8d66;
+    --accent: #e0a96d;
+    --accent-hover: #dd994b;
+    --background: #ffffff;
+    --card-sub-bg: #f8f9fa;
+    --text-main: #334155;
+    --text-muted: #616e7d;
+    --footer-bg: #012412;
+}
 
-         /* --- Custom Header Matching edited-image.png --- */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between; 
-            padding: 15px 5%;
-            background-color: #ffffff;
-            position: relative;
-            z-index: 1010;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 0px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .logo {
-            width: 70px;
-            height: auto;
-            cursor: pointer;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background);
+    color: var(--primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
 
-        .school-name {
-            margin-left: 20px;
-        }
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-        /* Fixed to match exactly with single-line heading + subtitle underneath */
-        .school-name h2 {
-                font-size: 20px; 
-                color: #062b1a; 
-                font-weight: 800;
-                letter-spacing: 0.5px;
-                line-height: 1.1;
-        }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
 
-        .school-name p {
-            font-size: 11px;
-            color: #0e845c;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-top: 4px;
-            text-transform: uppercase;
-        }
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
 
-        /* --- About Us පිටුවේ වගේම Glowing Capsule Navigation Bar (දකුණු පසට වන්නට) --- */
-        nav {
-            background: var(--primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50px; 
-            box-shadow: 0 8px 25px rgba(10, 50, 33, 0.2); 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            
-        }
+.logo {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
-        nav a {
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            padding: 20px 60px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            position: relative;
-        }
+.school-name {
+    margin-left: 20px;
+}
 
-        /* About Us එකේ තිබූ Glowing Gold Line එක */
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 50%;
-            width: 0;
-            height: 4px;
-            background-color: var(--accent);
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
+.school-name h2 {
+    font-size: 20px;
+    color: #062b1a;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
 
-        nav a:hover, nav a.active {
-            color: var(--accent);
-            background-color: rgba(255, 255, 255, 0.05);
-        }
+.school-name p {
+    font-size: 11px;
+    color: #0e845c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
 
-        nav a:hover::after, nav a.active::after {
-            width: 70%;
-        }
+/* =========================================================
+   DESKTOP NAVIGATION CAPSULE
+   ========================================================= */
 
-        /* Premium Contact Container Layout */
-        .contact-container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: var(--card-sub-bg);
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 30px rgba(10, 50, 33, 0.04);
-            border-radius: 24px;
-        }
+nav {
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(10, 50, 33, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
 
-        .contact-info h1 {
-            font-size: 32px;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
+nav a {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 20px 60px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+}
 
-        .contact-info h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: var(--accent);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
 
-        .info-item {
-            margin-bottom: 30px;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
-        }
+nav a:hover,
+nav a.active {
+    color: var(--accent);
+    background-color: rgba(255, 255, 255, 0.05);
+}
 
-        .info-item:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(10, 50, 33, 0.06);
-        }
+nav a:hover::after,
+nav a.active::after {
+    width: 70%;
+}
 
-        .info-item h3 {
-            margin: 0 0 10px 0;
-            color: var(--primary);
-            font-size: 18px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
+/* =========================================================
+   HAMBURGER BUTTON - HIDDEN ON DESKTOP
+   ========================================================= */
 
-        .info-item p {
-            margin: 0;
-            color: #4a5568;
-            font-size: 16px;
-            line-height: 1.7;
-            font-weight: 500;
-        }
+.menu-toggle {
+    display: none;
+}
 
-        /* Modern Map Styling */
-        .map-area {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
-        }
+/* =========================================================
+   CONTACT CONTAINER
+   ========================================================= */
 
-        .map-area:hover {
-            border-color: var(--accent);
-        }
+.contact-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background: var(--card-sub-bg);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(10, 50, 33, 0.04);
+    border-radius: 24px;
+}
 
-        .map-area iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 450px;
-            border: none;
-            display: block;
-        }
+.contact-info h1 {
+    font-size: 32px;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
 
-        /* --- Mobile Responsive Rules --- */
-        @media (max-width: 1100px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px 5%;
-            }
-            .brand-container {
-                flex-direction: column;
-                margin-bottom: 20px;
-            }
-            .school-name {
-                margin-left: 0;
-            }
-            nav {
-                width: 100%;
-                border-radius: 25px; 
-                flex-direction: column;
-                padding: 10px 0;
-            }
-            nav a {
-                width: 100%;
-                padding: 12px 0;
-                font-size: 14px;
-            }
-            nav a::after {
-                bottom: 0;
-            }
-            .contact-container { 
-                grid-template-columns: 1fr; 
-                margin: 20px 4%; 
-                padding: 25px;
-                gap: 30px;
-            }
-            .map-area iframe {
-                min-height: 350px;
-            }
-            .footer-content {
-                grid-template-columns: 1fr !important;
-            }
-        }
+.contact-info h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
 
-         /* --- Footer Styles --- */
-        footer {
-            background-color: var(--primary); 
-            color: #ffffff;
-            padding: 50px 5% 20px 5%;
-            border-top: 4px solid var(--accent); 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+.info-item {
+    margin-bottom: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+}
 
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-            padding-bottom: 30px;
-        }
+.info-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(10, 50, 33, 0.06);
+}
 
-        /* Brand & Logo Section (Left Side) */
-        .footer-col.brand-col {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex: 1;
-            min-width: 280px;
-        }
-        /* Brand & Logo Section - ලාංඡනය සහ නම එක යට එක වැටීමට සැකසීම */
-        .footer-col.brand-col {
-            display: flex;
-            flex-direction: column; /* මෙතැනින් එක යට එක වැටීමට සකසයි */
-            align-items: center; /* මැදට අවශ්‍ය නම් center ද, වම්පසට නම් flex-start ද දෙන්න */
-            gap: 15px;
-            flex: 1;
-            min-width: 250px;
-        }
+.info-item h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
 
-        /* මෙතැනින් Footer Logo එකේ ප්‍රමාණය පාලනය කළ හැක (උදා: 50px) */
-        .footer-logo {
-            width: 100px !important; 
-            height: auto !important;
-            max-width: 100px !important;
-            background: #ffffff;
-            padding: 5px;
-            border-radius: 8px;
-            object-fit: contain;
-        }
+.info-item p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 500;
+}
 
-        .brand-text h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0;
-            line-height: 1.4;
-        }
+/* =========================================================
+   GOOGLE MAP
+   ========================================================= */
 
-        /* Links & Contact Sections (Right Side to Logo) */
-        .footer-links-wrapper {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            flex: 2;
-            justify-content: flex-end;
-        }
+.map-area {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
+}
 
-        .footer-col {
-            min-width: 180px;
-        }
+.map-area:hover {
+    border-color: var(--accent);
+}
 
-        .footer-col h3 {
-            font-size: 16px;
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-weight: 600;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            display: inline-block;
-            padding-bottom: 4px;
-        }
+.map-area iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    border: none;
+    display: block;
+}
 
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
+footer {
+    background-color: var(--primary);
+    color: #ffffff;
+    padding: 50px 5% 20px 5%;
+    border-top: 4px solid var(--accent);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .footer-col ul li a, 
-        .footer-col p {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    padding-bottom: 30px;
+}
 
-        .footer-col ul li a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
+.footer-col.brand-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 250px;
+}
 
-        .social-icons {
-            display: flex;
-            gap: 12px;
-            margin-top: 10px;
-        }
+.footer-logo {
+    width: 100px !important;
+    height: auto !important;
+    max-width: 100px !important;
+    background: #ffffff;
+    padding: 5px;
+    border-radius: 8px;
+    object-fit: contain;
+}
 
-        .social-icons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 50%;
-            font-size: 16px;
-            text-decoration: none;
-            transition: background 0.3s, color 0.3s;
-        }
+.brand-text h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.4;
+}
 
-        .social-icons a:hover {
-            background: var(--accent);
-            color: var(--primary);
-        }
+.footer-links-wrapper {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    flex: 2;
+    justify-content: flex-end;
+}
 
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            font-size: 13px;
-            color: #94a3b8;
-        }
+.footer-col {
+    min-width: 180px;
+}
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .footer-col.brand-col {
-                flex-direction: column;
-                align-items: center;
-            }
-            .footer-links-wrapper {
-                justify-content: center;
-                gap: 30px;
-                width: 100%;
-            }
-        }
-    
+.footer-col h3 {
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a,
+.footer-col p {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.footer-col ul li a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* =========================================================
+   MOBILE VIEW - MAX WIDTH 768px
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* ---------- MOBILE HEADER ---------- */
+
+    header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+        z-index: 1010;
+    }
+
+    .brand-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .logo {
+        width: 55px;
+        height: auto;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .school-name {
+        margin: 0;
+        min-width: 0;
+    }
+
+    .school-name h2 {
+        font-size: 16px;
+        line-height: 1.1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .school-name p {
+        font-size: 9px;
+        letter-spacing: 0.7px;
+        margin-top: 3px;
+        white-space: nowrap;
+    }
+
+    /* ---------- HAMBURGER BUTTON ---------- */
+
+    .menu-toggle {
+        display: flex;
+        position: relative;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        padding: 8px;
+        margin: 0 0 0 10px;
+        background: var(--primary);
+        border: 2px solid var(--accent);
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1020;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        min-height: 3px;
+        flex-shrink: 0;
+        background: var(--accent);
+        border-radius: 3px;
+        opacity: 1;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* ---------- MOBILE NAVIGATION CLOSED ---------- */
+
+    header nav#mainNav {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 15px;
+        right: 15px;
+        width: auto;
+        margin: 0;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 2px;
+        background: var(--primary);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30);
+        overflow: hidden;
+
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+
+        z-index: 1015;
+    }
+
+    /* ---------- MOBILE NAVIGATION OPEN ---------- */
+
+    header nav#mainNav.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    header nav#mainNav a {
+        display: block;
+        width: 100%;
+        flex: none;
+        padding: 14px 18px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.95);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 10px;
+        background: transparent;
+    }
+
+    header nav#mainNav a:hover,
+    header nav#mainNav a.active {
+        color: var(--accent);
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    header nav#mainNav a::after {
+        bottom: 4px;
+        height: 3px;
+    }
+
+    /* ---------- HAMBURGER CHANGES TO X ---------- */
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* ---------- CONTACT CONTAINER ---------- */
+
+    .contact-container {
+        width: auto;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        margin: 25px 15px;
+        padding: 25px;
+        gap: 30px;
+        border-radius: 18px;
+    }
+
+    .contact-info h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .info-item {
+        margin-bottom: 20px;
+        padding: 18px;
+    }
+
+    .info-item h3 {
+        font-size: 17px;
+    }
+
+    .info-item p {
+        font-size: 15px;
+        overflow-wrap: anywhere;
+    }
+
+    /* ---------- MAP ---------- */
+
+    .map-area {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .map-area iframe {
+        width: 100%;
+        min-height: 350px;
+        height: 350px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 40px 20px 18px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-col.brand-col {
+        width: 100%;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        width: 90px !important;
+        max-width: 90px !important;
+        height: auto !important;
+    }
+
+    .brand-text h2 {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .footer-links-wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .footer-col {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .footer-col h3 {
+        font-size: 16px;
+    }
+
+    .footer-col p,
+    .footer-col ul li a {
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        padding-top: 18px;
+        font-size: 11px;
+        line-height: 1.6;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE SCREENS - MAX WIDTH 480px
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo {
+        width: 50px;
+    }
+
+    .brand-container {
+        gap: 9px;
+    }
+
+    .school-name h2 {
+        font-size: 14px;
+    }
+
+    .school-name p {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+    }
+
+    .contact-container {
+        margin: 20px 12px;
+        padding: 20px 15px;
+        gap: 22px;
+    }
+
+    .contact-info h1 {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .info-item {
+        padding: 16px;
+    }
+
+    .info-item h3 {
+        font-size: 16px;
+    }
+
+    .info-item p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .map-area iframe {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    footer {
+        padding: 35px 15px 16px;
+    }
+
+    .footer-bottom {
+        font-size: 10px;
+    }
+}
+
+/* =========================================================
+   EXTRA SMALL PHONES - MAX WIDTH 380px
+   ========================================================= */
+
+@media screen and (max-width: 380px) {
+
+    header {
+        padding: 12px 12px;
+    }
+
+    .logo {
+        width: 46px;
+    }
+
+    .brand-container {
+        gap: 8px;
+    }
+
+    .school-name h2 {
+        font-size: 12px;
+    }
+
+    .school-name p {
+        font-size: 7px;
+        letter-spacing: 0.3px;
+    }
+
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        margin-left: 6px;
+    }
+
+    .menu-toggle span {
+        width: 21px;
+    }
+
+    .contact-container {
+        margin: 15px 10px;
+        padding: 16px 12px;
+    }
+
+    .contact-info h1 {
+        font-size: 23px;
+    }
+
+    .info-item {
+        padding: 14px;
+    }
+
+    .map-area iframe {
+        min-height: 260px;
+        height: 260px;
+    }
+}
