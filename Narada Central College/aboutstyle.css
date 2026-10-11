@@ -1329,4 +1329,35 @@ header { padding: 12px 15px !important; }
     }
 }
 
+/* ACTIVE TAB UNDERLINE FIX */
+
+header nav#mainNav a.active {
+    position: relative;
+    color: var(--accent) !important;
+}
+
+header nav#mainNav a.active::after {
+    content: "";
+    display: block !important;
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 70%;
+    height: 4px;
+    background-color: var(--accent) !important;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+    header nav#mainNav a.active::after {
+        display: block !important;
+        bottom: 4px;
+        width: 70%;
+        height: 3px;
+    }
+}
+
+
 }
