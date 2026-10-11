@@ -35,38 +35,51 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
+    width: 100%;
     padding: 15px 5%;
     background-color: #ffffff;
     position: relative;
     z-index: 1010;
+    overflow: visible;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .header-branding {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    min-width: 0;
 }
 
 .header-logo {
+    display: block;
     width: 70px;
     height: auto;
+    flex-shrink: 0;
     cursor: pointer;
 }
 
 .school-name {
-    margin-left: 10px;
+    margin-left: 0;
+    min-width: 0;
 }
 
-.header-title h2 {
+.header-title {
+    min-width: 0;
+}
+
+.header-title h2,
+.school-name h2 {
     font-size: 20px;
     color: #062b1a;
     font-weight: 800;
     letter-spacing: 0.5px;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
-.header-title p {
+.header-title p,
+.school-name p {
     font-size: 11px;
     color: #0e845c;
     font-weight: 600;
@@ -85,6 +98,7 @@ nav {
     border-radius: 50px;
     box-shadow: 0 8px 25px rgba(10, 50, 33, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
 nav a {
@@ -99,10 +113,11 @@ nav a {
     transition: all 0.3s ease;
 }
 
+header nav#mainNav a::after,
 nav a::after {
     content: '';
     position: absolute;
-    bottom: 4px;
+    bottom: 0;
     left: 50%;
     width: 0;
     height: 4px;
@@ -111,35 +126,26 @@ nav a::after {
     transition: width 0.3s ease;
 }
 
+header nav#mainNav a:hover,
+header nav#mainNav a.active,
 nav a:hover,
 nav a.active {
     color: var(--accent);
     background-color: rgba(255, 255, 255, 0.05);
 }
 
+header nav#mainNav a:hover::after,
+header nav#mainNav a.active::after,
 nav a:hover::after,
 nav a.active::after {
     width: 70%;
 }
 
-/* Mobile Menu Toggle */
+/* Mobile Menu Toggle Hidden on Desktop */
 
+header .menu-toggle,
 .menu-toggle {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    z-index: 1020;
-}
-
-.menu-toggle span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--primary);
-    border-radius: 3px;
 }
 
 /* ABOUT SECTION */
@@ -919,356 +925,242 @@ footer {
     color: #94a3b8;
 }
 
-
 /* =========================================================
-   MOBILE RESPONSIVE DESIGN
-========================================================= */
+   MOBILE HAMBURGER MENU & RESPONSIVE DESIGN (FIRST CODE SPEC)
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
-   /* =========================================================
-   MOBILE HEADER - LOGO + SCHOOL NAME + MENU
-========================================================= */
-
-@media (max-width: 768px) {
+    /* Header row */
 
     header {
-        width: 100%;
-        min-height: 70px;
-        padding: 10px 15px;
-
+        position: sticky;
+        top: 0;
         display: flex;
-        align-items: center;
+        flex-direction: row;
         justify-content: space-between;
-
-        background: #ffffff;
-        position: relative;
-        z-index: 1010;
-    }
-
-    /* LOGO + SCHOOL NAME */
-    .header-branding {
-        display: flex;
         align-items: center;
-        gap: 10px;
-
-        min-width: 0;
-        flex: 1;
+        width: 100%;
+        padding: 15px 20px;
+        text-align: left;
+        z-index: 1010;
+        background: #ffffff;
     }
 
-    .header-logo {
-        width: 50px;
-        height: auto;
+    /* Logo and school name */
 
+    header .header-branding,
+    .header-branding,
+    .brand-container {
+        display: flex !important;
+        flex: 1 1 auto;
+        align-items: center !important;
+        gap: 9px !important;
+        min-width: 0;
+    }
+
+    header .header-logo,
+    .header-logo,
+    .logo {
+        display: block;
+        width: 50px !important;
+        height: auto !important;
         flex-shrink: 0;
-        object-fit: contain;
+        margin: 0 !important;
     }
 
-    .header-title {
+    header .header-title,
+    .header-title,
+    .school-name {
         min-width: 0;
+        margin: 0 !important;
     }
 
-    .header-title h2 {
-        font-size: 15px;
+    header .header-title h2,
+    .header-title h2,
+    .school-name h2 {
+        font-size: 15px !important;
         line-height: 1.2;
-
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: #062b1a;
         font-weight: 800;
-
         margin: 0;
-        white-space: normal;
     }
 
-    .header-title p {
-        font-size: 9px;
-        line-height: 1.3;
-
+    header .header-title p,
+    .header-title p,
+    .school-name p {
+        margin-top: 4px;
+        font-size: 9px !important;
+        letter-spacing: 0.4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: #0e845c;
         font-weight: 600;
-
-        letter-spacing: 0.5px;
-        margin-top: 3px;
-
         text-transform: uppercase;
     }
 
-  /* ========================================================= FIXED MOBILE HAMBURGER MENU ========================================================= */
+    /* Hamburger button */
 
-/* Desktop - Keep hamburger hidden */ .menu-toggle { display: none; }
-
-/* Mobile hamburger and navigation */ @media screen and (max-width: 768px) {
-
-/* Keep existing header layout */ header { position: relative !important; display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; width: 100%; padding: 15px 20px !important; text-align: left !important; }
-
-.brand-container { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 10px !important; flex: 1; min-width: 0; }
-
-.logo { width: 55px !important; height: auto !important; margin: 0 !important; flex-shrink: 0; }
-
-.school-name { margin: 0 !important; min-width: 0; }
-
-.school-name h2 { font-size: 16px !important; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-.school-name p { font-size: 9px !important; white-space: nowrap; }
-
-/* Hamburger button */ .menu-toggle { display: flex !important; position: relative; width: 45px !important; height: 45px !important; min-width: 45px; padding: 8px !important; margin: 0 0 0 10px !important; background: var(--primary) !important; border: 2px solid var(--accent) !important; border-radius: 10px !important; align-items: center !important; justify-content: center !important; flex-direction: column !important; gap: 5px !important; cursor: pointer; z-index: 9999 !important; opacity: 1 !important; visibility: visible !important; }
-
-/* Three visible gold lines */ .menu-toggle span { display: block !important; width: 24px !important; height: 3px !important; min-height: 3px; flex-shrink: 0; background: var(--accent) !important; border-radius: 3px !important; opacity: 1; visibility: visible; transform: none; transition: all 0.3s ease; }
-
-/* Mobile navigation closed */ header nav#mainNav { position: absolute !important; top: calc(100% + 8px) !important; left: 15px !important; right: 15px !important; width: auto !important; margin: 0 !important; padding: 8px !important; display: flex !important; flex-direction: column !important; align-items: stretch !important; justify-content: flex-start !important; gap: 2px; background: var(--primary) !important; border-radius: 15px !important; box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transform: translateY(-10px) !important; transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important; z-index: 9998 !important; }
-
-/* Navigation open */ header nav#mainNav.active { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: translateY(0) !important; }
-
-/* Navigation links */ header nav#mainNav a { display: block !important; width: 100% !important; flex: none !important; padding: 14px 18px !important; margin: 0 !important; color: rgba(255, 255, 255, 0.95) !important; text-align: center !important; font-size: 14px !important; border-radius: 10px !important; }
-
-header nav#mainNav a:hover, header nav#mainNav a.active { color: var(--accent) !important; background-color: rgba(255, 255, 255, 0.08) !important; }
-
-header nav#mainNav a::after { bottom: 4px !important; height: 3px !important; }
-
-/* Hamburger transforms to X when active */ .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg) !important; }
-
-.menu-toggle.active span:nth-child(2) { opacity: 0 !important; }
-
-.menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg) !important; } }
-
-/* Extra small phones */ @media screen and (max-width: 380px) {
-
-header { padding: 12px 15px !important; }
-
-.logo { width: 50px !important; }
-
-.school-name h2 { font-size: 14px !important; }
-
-.school-name p { font-size: 8px !important; }
-
-.menu-toggle { width: 42px !important; height: 42px !important; min-width: 42px !important; }
-
-.menu-toggle span { width: 22px !important; } }
-    
-/* =========================================================
-   SMALL MOBILE DEVICES
-   ========================================================= */
-
-@media screen and (max-width: 380px) {
-
+    header .menu-toggle,
     .menu-toggle {
-        width: 42px !important;
-        height: 42px !important;
-        min-width: 42px !important;
+        display: flex !important;
+        position: relative;
+        width: 45px !important;
+        height: 45px !important;
+        min-width: 45px !important;
+        padding: 8px !important;
+        margin: 0 0 0 10px !important;
+        background: var(--primary) !important;
+        border: 2px solid var(--accent) !important;
+        border-radius: 10px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+        cursor: pointer;
+        z-index: 1020 !important;
+        flex-shrink: 0;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
+    /* Three gold lines */
+
+    header .menu-toggle span,
     .menu-toggle span {
-        width: 22px !important;
+        display: block !important;
+        width: 24px !important;
+        height: 3px !important;
+        min-height: 3px !important;
+        flex-shrink: 0;
+        background: var(--accent) !important;
+        border-radius: 3px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-}
+    /* Full-width dropdown: closed state */
 
-    /* MOBILE NAVIGATION */
+    header nav#mainNav,
+    nav#mainNav,
     nav {
-        position: absolute;
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        left: 15px !important;
+        right: 15px !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 2px !important;
+        background: var(--primary) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 15px !important;
+        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important;
+        overflow: hidden !important;
 
-        top: 100%;
-        left: 0;
+        max-height: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateY(-10px) !important;
 
-        width: 100%;
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease !important;
 
-        display: flex;
-        flex-direction: column;
-
-        background: var(--primary);
-
-        border-radius: 0;
-        border: none;
-
-        max-height: 0;
-        overflow: hidden;
-
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-        transition: max-height 0.35s ease;
+        z-index: 1015 !important;
     }
 
+    /* Dropdown open */
+
+    header nav#mainNav.active,
+    nav#mainNav.active,
     nav.active {
-        max-height: 500px;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+        max-height: none !important;
     }
 
+    header nav#mainNav a,
     nav a {
-        width: 100%;
-
-        padding: 15px 20px;
-
-        text-align: center;
-
-        color: #ffffff;
-        font-size: 15px;
-
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        display: block !important;
+        width: 100% !important;
+        flex: none !important;
+        padding: 14px 18px !important;
+        margin: 0 !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        background: transparent !important;
+        border-bottom: none !important;
     }
 
-    nav a:last-child {
-        border-bottom: none;
+    header nav#mainNav a:hover,
+    header nav#mainNav a.active,
+    nav a:hover,
+    nav a.active {
+        color: var(--accent) !important;
+        background-color: rgba(255, 255, 255, 0.08) !important;
     }
 
+    header nav#mainNav a::after,
     nav a::after {
-        display: none;
-    }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-    header {
-        min-height: 65px;
-        padding: 9px 12px;
+        display: block !important;
+        bottom: 4px !important;
+        height: 3px !important;
     }
 
-    .header-branding {
-        gap: 8px;
+    /* Hamburger changes into X */
+
+    header .menu-toggle.active span:nth-child(1),
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg) !important;
     }
 
-    .header-logo {
-        width: 45px;
+    header .menu-toggle.active span:nth-child(2),
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
     }
 
-    .header-title h2 {
-        font-size: 13px;
+    header .menu-toggle.active span:nth-child(3),
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg) !important;
     }
-
-    .header-title p {
-        font-size: 8px;
-        letter-spacing: 0.4px;
-    }
-
-    .menu-toggle {
-        width: 27px;
-        height: 20px;
-        margin-left: 8px;
-    }
-
-    .menu-toggle span {
-        height: 3px;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 360px) {
-
-    header {
-        padding: 8px 10px;
-    }
-
-    .header-logo {
-        width: 40px;
-    }
-
-    .header-branding {
-        gap: 7px;
-    }
-
-    .header-title h2 {
-        font-size: 12px;
-    }
-
-    .header-title p {
-        font-size: 7px;
-    }
-
-    .menu-toggle {
-        width: 25px;
-        height: 18px;
-    }
-}
-
-    /* MOBILE NAVIGATION */
-
-    nav {
-        position: absolute;
-
-        top: 100%;
-        left: 0;
-
-        width: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: stretch;
-        justify-content: flex-start;
-
-        background: var(--primary);
-
-        border-radius: 0;
-
-        border: none;
-
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-        max-height: 0;
-
-        overflow: hidden;
-
-        transition: max-height 0.35s ease-in-out;
-    }
-
-    nav.active {
-        max-height: 500px;
-    }
-
-    nav a {
-        width: 100%;
-
-        padding: 15px 20px;
-
-        text-align: center;
-
-        font-size: 15px;
-
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    nav a:last-child {
-        border-bottom: none;
-    }
-
-    nav a::after {
-        display: none;
-    }
-
 
     /* HERO */
 
     .hero-slider-container {
         width: 100%;
-
         height: 65vh;
-
         min-height: 450px;
-
         max-height: 700px;
     }
 
     .hero-slide {
         width: 100%;
         height: 100%;
-
         background-size: cover;
-
         background-position: center center;
     }
 
     .hero-slider-container::after {
         width: 100%;
-
         height: 100%;
-
         background:
             linear-gradient(
                 180deg,
@@ -1278,36 +1170,22 @@ header { padding: 12px 15px !important; }
             );
     }
 
-
-    /* HERO BRANDING */
-
     .slider-branding {
         top: 8%;
-
         left: 5%;
-
         width: 90%;
-
         max-width: 90%;
-
         display: flex;
-
         flex-direction: column;
-
         align-items: center;
-
         justify-content: center;
-
         text-align: center;
-
         gap: 10px;
     }
 
     .slider-logo {
         width: clamp(65px, 18vw, 90px);
-
         max-width: 90px;
-
         height: auto;
     }
 
@@ -1317,42 +1195,26 @@ header { padding: 12px 15px !important; }
 
     .slider-school-name h2 {
         font-size: clamp(17px, 5vw, 24px);
-
         line-height: 1.25;
-
         word-wrap: break-word;
     }
 
     .slider-school-name p {
         font-size: clamp(9px, 2.8vw, 13px);
-
         line-height: 1.4;
-
         letter-spacing: 0.8px;
     }
 
-
-    /* HERO TEXT */
-
     .hero-text-wrapper {
         width: 90%;
-
         height: auto;
-
         top: auto;
-
         right: 5%;
-
         bottom: 12%;
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         text-align: center;
-
         padding: 0;
     }
 
@@ -1362,36 +1224,23 @@ header { padding: 12px 15px !important; }
 
     .hero-text-wrapper h3 {
         font-size: clamp(13px, 4vw, 19px);
-
         letter-spacing: 2px;
-
         margin-bottom: 8px;
-
         line-height: 1.3;
     }
 
     .hero-text-wrapper h1 {
         font-size: clamp(25px, 8vw, 40px);
-
         line-height: 1.15;
-
         letter-spacing: 0.5px;
-
         word-wrap: break-word;
-
         overflow-wrap: break-word;
     }
 
-
-    /* DOTS */
-
     .slider-dots {
         bottom: 18px;
-
         right: 50%;
-
         transform: translateX(50%);
-
         gap: 9px;
     }
 
@@ -1400,85 +1249,63 @@ header { padding: 12px 15px !important; }
         height: 10px;
     }
 
-
     /* ABOUT */
 
     .about-section {
         width: 100%;
-
         padding: 55px 20px;
     }
 
     .container {
         width: 100%;
-
         max-width: 800px;
     }
 
     .section-title {
         font-size: clamp(25px, 7vw, 32px);
-
         line-height: 1.3;
-
         margin-bottom: 20px;
     }
 
     .about-text {
         font-size: 16px;
-
         line-height: 1.75;
-
         text-align: center;
-
         word-wrap: break-word;
-
         overflow-wrap: break-word;
     }
-
 
     /* VISION / MISSION */
 
     .vision-mission {
         width: 100%;
-
         padding: 55px 15px;
     }
 
     .vm-container {
         width: 100%;
-
         display: grid;
-
         grid-template-columns: 1fr;
-
         gap: 20px;
     }
 
     .vm-box {
         width: 100%;
-
         padding: 30px 20px;
-
         min-width: 0;
     }
 
     .vm-box h2 {
         font-size: 23px;
-
         text-align: center;
-
         margin-bottom: 15px;
     }
 
     .vm-box p {
         font-size: 16px;
-
         line-height: 1.8;
-
         text-align: center;
-
         word-wrap: break-word;
-
         overflow-wrap: break-word;
     }
 
@@ -1486,71 +1313,54 @@ header { padding: 12px 15px !important; }
         font-size: 20px;
     }
 
-
     /* CLUBS */
 
     .clubs-section {
         width: 100%;
-
         padding: 55px 15px;
     }
 
     .clubs-container {
         width: 100%;
-
         display: grid;
-
         grid-template-columns: 1fr;
-
         gap: 20px;
-
         margin-top: 25px;
     }
 
     .club-card {
         width: 100%;
-
         padding: 25px 20px;
-
         min-width: 0;
     }
 
     .club-card h3 {
         font-size: 20px;
-
         line-height: 1.3;
     }
 
     .club-card p {
         font-size: 15px;
-
         line-height: 1.7;
-
         word-wrap: break-word;
-
         overflow-wrap: break-word;
     }
-
 
     /* SPORTS */
 
     .sports-section {
         width: 100%;
-
         padding: 55px 15px;
     }
 
     .sports-swiper {
         width: 100%;
-
         overflow: hidden;
     }
 
     .sport-card {
         width: 100%;
-
         min-height: 180px;
-
         padding: 25px 20px;
     }
 
@@ -1560,34 +1370,26 @@ header { padding: 12px 15px !important; }
 
     .sport-card p {
         font-size: 15px;
-
         line-height: 1.7;
     }
-
 
     /* STATS */
 
     .stats-section {
         width: 100%;
-
         padding: 60px 20px;
-
         background-attachment: scroll;
     }
 
     .stats-container {
         width: 100%;
-
         display: grid;
-
         grid-template-columns: 1fr;
-
         gap: 20px;
     }
 
     .stat-box {
         width: 100%;
-
         padding: 30px 15px;
     }
 
@@ -1597,34 +1399,25 @@ header { padding: 12px 15px !important; }
 
     .stat-box p {
         font-size: 12px;
-
         line-height: 1.5;
     }
-
 
     /* CHATBOT */
 
     .chat-launcher {
         width: 55px;
         height: 55px;
-
         right: 15px;
         bottom: 15px;
-
         font-size: 23px;
     }
 
     .chat-wrapper {
         width: calc(100% - 30px);
-
         max-width: 350px;
-
         height: min(450px, 70vh);
-
         right: 15px;
-
         bottom: 80px;
-
         border-radius: 15px;
     }
 
@@ -1638,7 +1431,6 @@ header { padding: 12px 15px !important; }
 
     .chat-msg {
         max-width: 90%;
-
         font-size: 13px;
     }
 
@@ -1648,7 +1440,6 @@ header { padding: 12px 15px !important; }
 
     .chat-input {
         min-width: 0;
-
         font-size: 13px;
     }
 
@@ -1656,42 +1447,31 @@ header { padding: 12px 15px !important; }
         padding: 0 12px;
     }
 
-
     /* FOOTER */
 
     footer {
         width: 100%;
-
         padding: 40px 20px 15px;
     }
 
     .footer-container {
         width: 100%;
-
         flex-direction: column;
-
         align-items: center;
-
         text-align: center;
-
         gap: 30px;
     }
 
     .footer-col.brand-col {
         width: 100%;
-
         min-width: 0;
-
         flex-direction: column;
-
         align-items: center;
-
         gap: 15px;
     }
 
     .footer-logo {
         width: 90px !important;
-
         max-width: 90px !important;
     }
 
@@ -1701,27 +1481,20 @@ header { padding: 12px 15px !important; }
 
     .brand-text h2 {
         font-size: 16px;
-
         line-height: 1.4;
     }
 
     .footer-links-wrapper {
         width: 100%;
-
         display: flex;
-
         flex-direction: column;
-
         align-items: center;
-
         justify-content: center;
-
         gap: 30px;
     }
 
     .footer-col {
         width: 100%;
-
         min-width: 0;
     }
 
@@ -1732,62 +1505,68 @@ header { padding: 12px 15px !important; }
     .footer-col p,
     .footer-col ul li a {
         font-size: 13px;
-
         word-wrap: break-word;
-
         overflow-wrap: break-word;
     }
 
     .footer-bottom {
         width: 100%;
-
         font-size: 11px;
-
         line-height: 1.6;
-
         padding-top: 15px;
     }
 }
 
+/* =========================================
+   SMALL PHONES
+   Button size: 42px x 42px
+   ========================================= */
 
-/* =========================================================
-   SMALL MOBILE PHONES
-========================================================= */
-
-@media (max-width: 480px) {
+@media screen and (max-width: 380px) {
 
     header {
-        padding: 9px 12px;
-    }
-
-    .header-logo {
-        width: 45px;
-    }
-
-    .header-branding {
+        padding: 12px !important;
         gap: 8px;
     }
 
-    .header-title h2 {
-        font-size: 13px;
+    header .header-logo,
+    .header-logo,
+    .logo {
+        width: 42px !important;
     }
 
-    .header-title p {
-        font-size: 8px;
+    header .header-branding,
+    .header-branding {
+        gap: 7px !important;
     }
 
+    header .header-title h2,
+    .header-title h2,
+    .school-name h2 {
+        font-size: 12px !important;
+    }
+
+    header .header-title p,
+    .header-title p,
+    .school-name p {
+        font-size: 7px !important;
+        letter-spacing: 0.2px;
+    }
+
+    header .menu-toggle,
     .menu-toggle {
-        width: 27px;
-
-        height: 20px;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
     }
 
-
-    /* HERO */
+    header .menu-toggle span,
+    .menu-toggle span {
+        width: 22px !important;
+    }
 
     .hero-slider-container {
         height: 62vh;
-
         min-height: 420px;
     }
 
@@ -1813,319 +1592,29 @@ header { padding: 12px 15px !important; }
 
     .hero-text-wrapper h3 {
         font-size: 13px;
-
         letter-spacing: 1.5px;
     }
-
-    .hero-text-wrapper h1 {
-        font-size: 27px;
-    }
-
-
-    /* SECTION TITLES */
-
-    .section-title {
-        font-size: 25px;
-    }
-
-
-    /* ABOUT */
-
-    .about-section {
-        padding: 45px 15px;
-    }
-
-    .about-text {
-        font-size: 15px;
-    }
-
-
-    /* VISION / MISSION */
-
-    .vision-mission {
-        padding: 45px 12px;
-    }
-
-    .vm-box {
-        padding: 25px 16px;
-    }
-
-    .vm-box h2 {
-        font-size: 21px;
-    }
-
-    .vm-box p {
-        font-size: 15px;
-
-        line-height: 1.75;
-    }
-
-    .vm-box.motto-box p {
-        font-size: 18px;
-    }
-
-
-    /* CLUBS */
-
-    .clubs-section {
-        padding: 45px 12px;
-    }
-
-    .club-card {
-        padding: 22px 16px;
-    }
-
-
-    /* SPORTS */
-
-    .sports-section {
-        padding: 45px 12px;
-    }
-
-
-    /* STATS */
-
-    .stats-section {
-        padding: 50px 15px;
-    }
-
-    .stat-box {
-        padding: 25px 12px;
-    }
-
-    .stat-box h2 {
-        font-size: 40px;
-    }
-
-
-    /* CHATBOT */
-
-    .chat-wrapper {
-        width: calc(100% - 20px);
-
-        right: 10px;
-
-        bottom: 75px;
-
-        height: 65vh;
-
-        max-height: 430px;
-    }
-
-    .chat-launcher {
-        right: 12px;
-
-        bottom: 12px;
-    }
-
-
-    /* FOOTER */
-
-    footer {
-        padding-left: 15px;
-
-        padding-right: 15px;
-    }
-
-    .footer-bottom {
-        font-size: 10px;
-    }
 }
 
+/* =========================================
+   REDUCE MOTION ACCESSIBILITY
+   ========================================= */
 
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 360px) {
-
-    .header-logo {
-        width: 40px;
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
-    .header-title h2 {
-        font-size: 12px;
-    }
-
-    .header-title p {
-        font-size: 7px;
-    }
-
-    .menu-toggle {
-        width: 25px;
-
-        height: 18px;
-    }
-
-    .slider-logo {
-        width: 58px;
-    }
-
-    .slider-school-name h2 {
-        font-size: 15px;
-    }
-
-    .slider-school-name p {
-        font-size: 8px;
-    }
-
-    .hero-text-wrapper h3 {
-        font-size: 12px;
-    }
-
-    .hero-text-wrapper h1 {
-        font-size: 24px;
-    }
-
-    .section-title {
-        font-size: 22px;
-    }
-
-    .about-text {
-        font-size: 14px;
-    }
-
-    .vm-box p {
-        font-size: 14px;
-    }
-
-    .chat-wrapper {
-        width: calc(100% - 16px);
-
-        right: 8px;
-    }
-}
-
-
-/* =========================================================
-   HAMBURGER MENU FIX — uses the existing HTML IDs/classes
-   ========================================================= */
-
-/* Desktop: keep the original horizontal navigation */
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none !important;
-    }
-
-    header nav#navbar {
-        position: static !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: auto !important;
-        max-height: none !important;
-        overflow: visible !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        transform: none !important;
-    }
-}
-
-/* Mobile: show the button and open/close the matching #navbar */
-@media (max-width: 768px) {
-    header {
-        position: relative !important;
-    }
-
-    .menu-toggle {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 5px !important;
-        width: 45px !important;
-        height: 45px !important;
-        min-width: 45px !important;
-        padding: 8px !important;
-        margin-left: 10px !important;
-        background: var(--primary) !important;
-        border: 2px solid var(--accent) !important;
-        border-radius: 10px !important;
-        cursor: pointer !important;
-        z-index: 1020 !important;
-        flex-shrink: 0 !important;
-    }
-
-    .menu-toggle span {
-        display: block !important;
-        width: 24px !important;
-        height: 3px !important;
-        min-height: 3px !important;
-        background: var(--accent) !important;
-        border-radius: 3px !important;
-        opacity: 1 !important;
-        transform: none;
-        transition: transform 0.25s ease, opacity 0.25s ease !important;
-    }
-
-    header nav#navbar {
-        position: absolute !important;
-        top: 100% !important;
-        left: 15px !important;
-        right: 15px !important;
-        width: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: flex-start !important;
-        gap: 2px !important;
-        margin: 8px 0 0 !important;
-        padding: 8px !important;
-        max-height: none !important;
-        overflow: visible !important;
-        background: var(--primary) !important;
-        border: none !important;
-        border-radius: 15px !important;
-        box-shadow: 0 10px 30px rgba(10, 50, 33, 0.30) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-        transform: translateY(-10px) !important;
-        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
-        z-index: 1019 !important;
-    }
-
-    header nav#navbar.active {
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-        transform: translateY(0) !important;
-    }
-
-    header nav#navbar a {
-        display: block !important;
-        width: 100% !important;
-        padding: 14px 18px !important;
-        margin: 0 !important;
-        color: rgba(255, 255, 255, 0.95) !important;
-        text-align: center !important;
-        font-size: 14px !important;
-        border-radius: 10px !important;
-        border-bottom: none !important;
-    }
-
-    header nav#navbar a:hover,
-    header nav#navbar a.active {
-        color: var(--accent) !important;
-        background-color: rgba(255, 255, 255, 0.08) !important;
-    }
-
-    header nav#navbar a::after {
-        bottom: 4px !important;
-        height: 3px !important;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg) !important;
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0 !important;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg) !important;
+    header nav#mainNav,
+    nav#mainNav,
+    nav,
+    header nav#mainNav a,
+    nav a,
+    header .menu-toggle span,
+    .menu-toggle span,
+    .hero-slide,
+    .club-card,
+    .sport-card {
+        transition: none !important;
     }
 }
