@@ -31,7 +31,7 @@
 </button>
 
 <nav id="navbar">
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html" class="active" aria-current="page">Home</a>
             <a href="about us.html">About Us</a>
             <a href="Gallery.html">Gallery</a>
             <a href="news.html">News</a>
@@ -105,12 +105,14 @@
      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
             
         <script>
-            const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
+            const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('navbar');
 
         if (menuToggle && nav) {
             menuToggle.addEventListener('click', () => {
-                nav.classList.toggle('active');
+                const isOpen = nav.classList.toggle('active');
+                menuToggle.classList.toggle('active', isOpen);
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
             });
         }
         var swiper = new Swiper(".mySwiper", {
@@ -434,3 +436,5 @@
         <p>Copyright © 2026 Narada College | Designed By: Ruwanpura National College of Education 2022-2024 batch</p>
     </div>
 </footer>
+</body>
+</html>
