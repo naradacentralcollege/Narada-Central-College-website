@@ -100,147 +100,207 @@
 
 
 
-<!-- =====================================================
-     PAGE TITLE
-===================================================== -->
-
-<div class="page-title">
-
-    <h1 id="gallery-heading">
-        GALLERY FOLDERS
-    </h1>
-
-</div>
-
-
-
-<!-- =====================================================
-     BACK BUTTON
-===================================================== -->
-
-<button class="back-btn"
-        id="backBtn"
-        onclick="showFolders()">
-
-    ← Back to Folders
-
-</button>
-
-
-
-<!-- =====================================================
-     FOLDER CONTAINER
-===================================================== -->
-
-<div class="folder-container"
-     id="folderContainer">    
-      <!-- SINHALA & HINDU NEW YEAR FESTIVAL -->
-
-<div class="folder-card"
-     onclick="openFolder(
-         'new-year-festival',
-         'Sinhala & Hindu New Year Festival'
-     )">
-
-    <img src="images/a.jpg"
-         alt="Sinhala & Hindu New Year Festival"
-         class="folder-cover-img">
-
-   
-
-    <p>View Event Photos</p>
-
-</div>
-</div>
-
-
-
-<!-- =====================================================
-     GALLERY
-===================================================== -->
-
-<div class="gallery-container"
-     id="galleryContainer">
-</div>
-
-
-
-
-
-
-
-<!-- =====================================================
-     GALLERY
-===================================================== -->
-
-<div class="gallery-container"
-     id="galleryContainer">
-</div>
-
-
-
-<!-- =====================================================
-     IMAGE MODAL
-===================================================== -->
-
-<div id="imageModal"
-     class="modal">
-
-
-    <button class="close"
-            type="button">
-
-        &times;
-
-    </button>
-
-
-    <div class="modal-wrapper">
-
-
-        <img class="modal-content"
-             id="fullImage"
-             alt="Enlarged View">
-
-
-        <!-- MODAL WATERMARK -->
-
-        <div class="modal-watermark-footer">
-
-
-            <div class="m-wm-left"
-                 id="modalSclText">
-
-                NARADA CENTRAL COLLEGE
-
-            </div>
-
-
-            <div class="m-wm-right">
-
-
-                <div id="modalSocText">
-
-                    Photography Society
-
-                </div>
-
-
-                <div id="modalEvtText">
-
-                    Event Name
-
-                </div>
-
-
-            </div>
-
-        </div>
-
+ <div class="page-title">
+        <h1 id="gallery-heading">GALLERY FOLDERS</h1>
     </div>
 
-</div>
+    <button class="back-btn" id="backBtn" onclick="showFolders()">← Back to Folders</button>
 
+    <div class="folder-container" id="folderContainer">
+        <div class="folder-card" onclick="openFolder('Friendly-Meetup', 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup')">
+            <img src="images/gathering/18.jpeg" alt="gathering cover" class="folder-cover-img">
+            <h3>A heartwarming meetup between the Grade 5 students of Parakaduwa Kanishta vidyalaya and Narada Central College.</h3>
+            <p>View Event Photos</p>
+        </div>
+
+        <div class="folder-card" onclick="openFolder('SBPTD', 'School Based Professional Teacher Development')">
+            <img src="images/SBPTD/1.jpeg" alt="sbptd Cover" class="folder-cover-img">
+            <h3>School Based Professional Teacher Development Program</h3>
+            <p>View Event Photos</p>
+        </div>
+    </div>
+    
+
+    <div class="gallery-container" id="galleryContainer"></div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-wrapper">
+            <img class="modal-content" id="fullImage" alt="Enlarged View">
+            <div class="modal-watermark-footer">
+                <div class="m-wm-left" id="modalSclText">NARADA CENTRAL COLLEGE</div>
+                <div class="m-wm-right">
+                    <div id="modalSocText">Photography Society</div>
+                    <div id="modalEvtText">Event Name</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ★ ඔබට පින්තූර 650 ක වුණත් විස්තර මෙතන ලේසියෙන්ම යටින් යටට දාගෙන යන්න පුළුවන් ★
+        // folder: folder-card එකේ දාපු 'sports-meet' හෝ 'big-match' කියන ID එක
+        // img: පින්තූරය තියෙන Path එක
+        // title: පින්තූරයට යටින් වැටෙන นම
+        // event: Watermark එක ඇතුළේ දර්ශනය විය යුතු ඉවෙන්ට් එකේ නම
+        const galleryData = [
+            // --- SPORTS MEET PHOTOS ---
+            { folder: 'Friendly-Meetup', img: 'images/gathering/18.jpeg', title: 'Participating in the morning assembly with the students of Narada College', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/20.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/17.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/21.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/23.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/19.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/35.jpg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/27.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/14.jpeg', title: 'Talent display by Parakaduwa Junior School students', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/40.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/39.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/36.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/11.jpeg', title: 'Touring the School Premises ', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/12.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/13.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/41.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/3.jpeg', title: 'Engaging in Sports and Games Under Teacher Guidance', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/5.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/6.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/8.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/9.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/10.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/29.jpeg', title: 'Presenting a Small Gift of Friendship', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/30.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+            { folder: 'Friendly-Meetup', img: 'images/gathering/31.jpeg', title: '', event: 'Parakaduwa Kanishta Vidyalaya & Narada central college Friendly Meetup' },
+
+            // ඔබට තව ක්‍රීඩා උත්සවයේ පින්තූර තියෙනවා නම් පහළින් මේ විදිහට දාන්න:
+            // { folder: 'sports-meet', img: 'images/sports3.jpg', title: 'Relay Event', event: 'Sports Meet 2026' },
+
+            // --- BIG MATCH PHOTOS ---
+            { folder: 'SBPTD', img: 'images/SBPTD/1.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/2.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/4.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/5.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/6.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/7.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/8.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/9.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+            { folder: 'SBPTD', img: 'images/SBPTD/10.jpeg', title: '', event: 'School Based Professional Teacher Development Program' },
+
+        ];
+
+        let activeImages = [];
+        let currentImgIndex = -1;
+
+        // මුළු පින්තූර ලැයිස්තුවම HTML එකට auto generate කරන ප්‍රධාන ශ්‍රිතය (පින්තූර 650ටම එක පාර ව්‍යුහය සාදයි)
+        function renderGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = ''; // පැරණි දත්ත clear කිරීම
+
+            galleryData.forEach(item => {
+                // ඔබේ මුල් කේතයේ තිබූ Watermark, HTML Classes සහ Layout එක ඒ විදිහටම මෙතන ක්‍රියාත්මක වේ.
+                // පින්තූර 650ක් එක පාර load වෙද්දී වෙබ් පිටුව හිරවීම වැළැක්වීමට loading="lazy" එකතු කර ඇත.
+                const itemHTML = `
+                    <div class="gallery-item" data-folder="${item.folder}">
+                        <div class="img-container">
+                            <img src="${item.img}" alt="${item.title}" loading="lazy">
+                            <div class="image-watermark-footer">
+                                <div class="wm-left">NARADA CENTRAL COLLEGE</div>
+                                <div class="wm-right">
+                                    <span class="soc-text">Photography Society</span>
+                                    <span class="evt-text">${item.event}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>${item.title}</h4>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', itemHTML);
+            });
+        }
+
+        function openFolder(folderName, displayName) {
+            document.getElementById('folderContainer').style.display = 'none';
+            document.getElementById('galleryContainer').style.display = 'grid';
+            document.getElementById('backBtn').style.display = 'block';
+            document.getElementById('gallery-heading').innerText = displayName;
+
+            const items = document.querySelectorAll('.gallery-item');
+            activeImages = []; // Array එක Reset කිරීම
+
+            items.forEach(item => {
+                if (item.getAttribute('data-folder') === folderName) {
+                    item.style.display = 'block';
+                    activeImages.push(item.querySelector('img'));
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function showFolders() {
+            document.getElementById('folderContainer').style.display = 'grid';
+            document.getElementById('galleryContainer').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'none';
+            document.getElementById('gallery-heading').innerText = 'GALLERY FOLDERS';
+            activeImages = [];
+        }
+
+        // --- Lightbox Modal Script ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("fullImage");
+        const span = document.getElementsByClassName("close")[0];
+
+        function updateModalImage(imgElement) {
+            if (!imgElement) return;
+            
+            modalImg.src = imgElement.src;
+
+            const container = imgElement.parentElement;
+            const sclText = container.querySelector('.wm-left').innerText;
+            const socText = container.querySelector('.soc-text').innerText;
+            const evtText = container.querySelector('.evt-text').innerText;
+
+            document.getElementById('modalSclText').innerText = sclText;
+            document.getElementById('modalSocText').innerText = socText;
+            document.getElementById('modalEvtText').innerText = evtText;
+        }
+
+        // පින්තූරයක් ක්ලික් කළ විට
+        document.addEventListener('click', function(e) {
+            if(e.target && e.target.matches('.gallery-item img')) {
+                modal.style.display = "block";
+                currentImgIndex = activeImages.indexOf(e.target);
+                updateModalImage(e.target);
+            }
+        });
+
+        // කීබෝඩ් එකේ Arrow Keys ක්‍රියාත්මක කරන කොටස
+        document.addEventListener('keydown', function(event) {
+            if (modal.style.display === "block" && activeImages.length > 0) {
+                if (event.key === "ArrowRight") {
+                    currentImgIndex = (currentImgIndex + 1) % activeImages.length;
+                    updateModalImage(activeImages[currentImgIndex]);
+                } else if (event.key === "ArrowLeft") {
+                    currentImgIndex = (currentImgIndex - 1 + activeImages.length) % activeImages.length;
+                    updateModalImage(activeImages[currentImgIndex]);
+                } else if (event.key === "Escape") {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // පිටුව මුලින්ම load වන විට පින්තූර ලිස්තුව සකසා ගන්න
+        renderGallery();
+    </script>
 
 
 <!-- =====================================================
@@ -395,7 +455,18 @@
 
 const galleryData = [
 
-  
+    {
+        folder: "grade5-gathering",
+        img: "images/photo1.jpg",
+        title: "Gathering Event Photo 1",
+        event: "Grade 5 Gathering"
+    },
+    {
+        folder: "grade5-gathering",
+        img: "images/photo2.jpg",
+        title: "Gathering Event Photo 2",
+        event: "Grade 5 Gathering"
+    }
 
 ];
 
